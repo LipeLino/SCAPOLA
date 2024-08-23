@@ -6,7 +6,7 @@ const Guide = () => {
     <section className="flexCenter flex-col">
       <div className="padding-container max-container w-full pb-24">
         <Image src="/camp.svg" alt="camp" width={50} height={50} />
-        <p className="uppercase regular-18 -mt-1 mb-3 text-green-50">
+        <p className="uppercase regular-18 -mt-1 mb-3 text-blue-dark">
           We are here for you
         </p>
         <div className="flex flex-wrap justify-between gap-5 lg:gap-10">
@@ -36,7 +36,7 @@ const Guide = () => {
             <div className='flex w-full flex-col'>
               <div className="flexBetween w-full">
                 <p className="regular-16 text-gray-20">Destination</p>
-                <p className="bold-16 text-green-50">48 min</p>
+                <p className="bold-16 text-blue-dark">48 min</p>
               </div>
               <p className="bold-20 mt-2">Aguas Calientes</p>
             </div>
