@@ -13,11 +13,10 @@ const Feature = () => {
           {/* <!-- Section Title Start --> */}
           <SectionHeader
             headerInfo={{
-              title: "SOLID FEATURES",
-              subtitle: "Core Features of Solid",
-              description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-            convallis tortor eros. Donec vitae tortor lacus. Phasellus aliquam
-            ante in maximus.`,
+              title: "NOSSOS SERVIÇOS",
+              subtitle: "CATÁLOGO DE SERVIÇOS",
+              description: `Soluções artesanais e estratégicas para fortalecer sua marca e reputação. 
+              Amplie sua presença e visibilidade com comunicação personalizada.`,
             }}
           />
           {/* <!-- Section Title End --> */}
@@ -26,7 +25,9 @@ const Feature = () => {
             {/* <!-- Features item Start --> */}
 
             {featuresData.map((feature, key) => (
-              <SingleFeature feature={feature} key={key} />
+              <SingleFeature feature={feature} key={key} 
+              customStyle={feature.id === 2 ? { fontSize: '21px' } : {}}
+              />
             ))}
             {/* <!-- Features item End --> */}
           </div>
