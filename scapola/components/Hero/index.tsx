@@ -70,7 +70,7 @@ const Hero = () => {
                 <div className=" relative aspect-[700/444] w-full">
                   <Image
                     className="shadow-solid-l dark:hidden"
-                    src="/images/hero/hero-light.svg"
+                    src="/images/hero/hero-dark.png"
                     alt="Hero"
                     fill
                   />

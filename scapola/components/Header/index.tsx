@@ -7,6 +7,21 @@ import { useEffect, useState } from "react";
 import ThemeToggler from "./ThemeToggler";
 import menuData from "./menuData";
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
+
+const LinkedInButton = () => {
+  return (
+    <Link
+      href="https://www.linkedin.com/company/scapolacomunica"
+      className="flex items-center justify-center rounded-full bg-primary pl-2.5 py-2.5 text-regular text-white duration-300 ease-in-out hover:bg-primaryho"
+    >
+      <FontAwesomeIcon icon={faLinkedin} className="" />
+      
+    </Link>
+  );
+};
+
 const Header = () => {
   const [navigationOpen, setNavigationOpen] = useState(false);
   const [dropdownToggler, setDropdownToggler] = useState(false);
@@ -155,17 +170,10 @@ const Header = () => {
             <ThemeToggler />
 
             <Link
-              href="https://github.com/NextJSTemplates/solid-nextjs"
-              className="text-regular font-medium text-waterloo hover:text-primary"
-            >
-              Contato 🌟
-            </Link>
-
-            <Link
-              href="https://nextjstemplates.com/templates/solid"
+              href="https://www.linkedin.com/company/scapolacomunica"
               className="flex items-center justify-center rounded-full bg-primary px-7.5 py-2.5 text-regular text-white duration-300 ease-in-out hover:bg-primaryho"
             >
-              Se inscreva 🔥
+              LinkedIn <LinkedInButton />
             </Link>
           </div>
         </div>

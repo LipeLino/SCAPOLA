@@ -6,42 +6,42 @@ const featuresData: Feature[] = [
     icon: "/images/icon/icon-01.svg",
     title: "Assessoria de Imprensa",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
+      "Fortalecemos sua marca com presença estratégica na mídia.",
   },
   {
     id: 2,
     icon: "/images/icon/icon-02.svg",
     title: "Consultoria em Comunicação",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
+      "Desenvolvemos soluções personalizadas para ampliar sua influência.",
   },
   {
     id: 3,
     icon: "/images/icon/icon-03.svg",
     title: "Produção de Conteúdo",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
+      "Criamos narrativas relevantes para destacar sua marca.",
   },
   {
     id: 4,
     icon: "/images/icon/icon-04.svg",
     title: "LinkedIn",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
+      "Aceleramos sua reputação e impacto na maior rede profissional.",
   },
   {
     id: 5,
     icon: "/images/icon/icon-05.svg",
     title: "Gestão de Crise",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
+      "Protegemos sua imagem com estratégias de comunicação eficientes.",
   },
   {
     id: 6,
     icon: "/images/icon/icon-06.svg",
     title: "Projetos Editoriais",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
+      "Produzimos e gerenciamos publicações, como e-books e catálogos.",
   },
 ];
 
