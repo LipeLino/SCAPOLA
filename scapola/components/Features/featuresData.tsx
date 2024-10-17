@@ -11,9 +11,9 @@ const featuresData: Feature[] = [
   {
     id: 2,
     icon: "/images/icon/icon-02.svg",
-    title: "Consultoria em Comunicação",
+    title: "Consultoria",
     description:
-      "Desenvolvemos soluções personalizadas para ampliar sua influência.",
+      "Desenvolvemos soluções personalizadas em comunicação para ampliar sua influência.",
   },
   {
     id: 3,

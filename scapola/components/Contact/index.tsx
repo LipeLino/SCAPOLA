@@ -67,13 +67,13 @@ const Contact = () => {
                 <div className="mb-7.5 flex flex-col gap-7.5 lg:flex-row lg:justify-between lg:gap-14">
                   <input
                     type="text"
-                    placeholder="Nome Completo"
+                    placeholder="Nome: "
                     className="w-full border-b border-stroke bg-transparent pb-3.5 focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-manatee dark:focus:placeholder:text-white lg:w-1/2"
                   />
 
                   <input
                     type="email"
-                    placeholder="E-mail"
+                    placeholder="E-mail: "
                     className="w-full border-b border-stroke bg-transparent pb-3.5 focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-manatee dark:focus:placeholder:text-white lg:w-1/2"
                   />
                 </div>
@@ -81,20 +81,20 @@ const Contact = () => {
                 <div className="mb-12.5 flex flex-col gap-7.5 lg:flex-row lg:justify-between lg:gap-14">
                   <input
                     type="text"
-                    placeholder="Assunto"
+                    placeholder="Assunto: "
                     className="w-full border-b border-stroke bg-transparent pb-3.5 focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-manatee dark:focus:placeholder:text-white lg:w-1/2"
                   />
 
                   <input
                     type="text"
-                    placeholder="Número de Telefone"
+                    placeholder="Número: "
                     className="w-full border-b border-stroke bg-transparent pb-3.5 focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-manatee dark:focus:placeholder:text-white lg:w-1/2"
                   />
                 </div>
 
                 <div className="mb-11.5 flex">
                   <textarea
-                    placeholder="Mensagem"
+                    placeholder="Mensagem: "
                     rows={4}
                     className="w-full border-b border-stroke bg-transparent focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-manatee dark:focus:placeholder:text-white"
                   ></textarea>
@@ -175,7 +175,7 @@ const Contact = () => {
               className="animate_top w-full md:w-2/5 md:p-7.5 lg:w-[26%] xl:pt-15"
             >
               <h2 className="mb-12.5 text-3xl font-semibold text-black dark:text-white xl:text-sectiontitle2">
-                Nos encontre
+                Contatos
               </h2>
 
               
@@ -192,7 +192,7 @@ const Contact = () => {
                   Telefone
                 </h4>
                 <p>
-                  <a href="#">31 9695-5494</a>
+                  <a href="#">31 99695-5494</a>
                 </p>
                 <div className="5 mb-7 mt-7">
                 <h3 className="mb-4 text-metatitle3 font-medium text-black dark:text-white">

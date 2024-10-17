@@ -63,7 +63,7 @@ const FeaturesTab = () => {
               </div>
               <div className="md:w-3/5 lg:w-auto">
                 <button className="text-sm font-medium text-black dark:text-white xl:text-regular">
-                  Rodrigo Scapola
+                  Rodrigo Scapolatempore
                 </button>
               </div>
             </div>
@@ -82,18 +82,18 @@ const FeaturesTab = () => {
               </div>
               <div className="md:w-3/5 lg:w-auto">
                 <button className="text-sm font-medium text-black dark:text-white xl:text-regular">
-                  Samira Batalha
+                  Alexandre Diniz
                 </button>
               </div>
             </div>
-            <div
+               <div
               onClick={() => setCurrentTab("tabThree")}
               className={`relative flex w-full cursor-pointer items-center gap-4 border-b border-stroke px-6 py-2 last:border-0 dark:border-strokedark md:w-auto md:border-0 xl:px-13.5 xl:py-5 ${
                 currentTab === "tabThree"
                   ? "active before:absolute before:bottom-0 before:left-0 before:h-1 before:w-full before:rounded-tl-[4px] before:rounded-tr-[4px] before:bg-primary"
                   : ""
               }`}
-            >
+            >              
               <div className="flex h-12.5 w-12.5 items-center justify-center rounded-[50%] border border-stroke dark:border-strokedark dark:bg-blacksection">
                 <p className="text-metatitle3 font-medium text-black dark:text-white">
                   03
@@ -101,10 +101,11 @@ const FeaturesTab = () => {
               </div>
               <div className="md:w-3/5 lg:w-auto">
                 <button className="text-sm font-medium text-black dark:text-white xl:text-regular">
-                  Alexandre Diniz
+                  Samira Batalha
                 </button>
               </div>
             </div>
+           
           </motion.div>
           {/* <!-- Tab Menues End --> */}
 

@@ -3,7 +3,7 @@ import { FeatureTab } from "@/types/featureTab";
 const featuresTabData: FeatureTab[] = [
   {
     id: "tabOne",
-    title: "Rodrigo Scapola",
+    title: "Rodrigo Scapolatempore",
     desc1: `Mestre em Tecnologia e Comunicação pela UFU;`,
     desc2: `Especialista em construção de marca pessoal;`,
     desc3: `Consultor em marketing digital e estratégias de comunicação.`,
@@ -12,15 +12,6 @@ const featuresTabData: FeatureTab[] = [
   },
   {
     id: "tabTwo",
-    title: "Samira Batalha",
-    desc1: `Jornalista em formação pela UFU;`,
-    desc2: `Executiva de atendimento para relações públicas;`,
-    desc3: `Cobertura jornalística, Branding, Social media, Criação de Roteiros.`,
-    image: "/images/features/samira.png",
-    imageDark: "/images/features/samira.png",
-  },
-  {
-    id: "tabThree",
     title: "Alexandre Diniz",
     desc1: `Jornalista formado pela PUC Minas e pós-graduado em Comunicação Estratégica;`,
     desc2: `Coordenador de PR & Content;`,
@@ -28,6 +19,16 @@ const featuresTabData: FeatureTab[] = [
     image: "/images/features/alexandre.png",
     imageDark: "/images/features/alexandre.png",
   },
+  {
+    id: "tabThree",
+    title: "Samira Batalha",
+    desc1: `Jornalista em formação pela UFU;`,
+    desc2: `Executiva de atendimento para relações públicas;`,
+    desc3: `Cobertura jornalística, Branding, Social media, Criação de Roteiros.`,
+    image: "/images/features/samira.png",
+    imageDark: "/images/features/samira.png",
+  },
+  
 ];
 
 export default featuresTabData;
