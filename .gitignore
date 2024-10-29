@@ -1,5 +1,3 @@
 node_modules
 la
 .env
-dist
-.next/
