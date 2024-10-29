@@ -2,6 +2,9 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInstagram, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 const Contact = () => {
   /**
@@ -61,7 +64,7 @@ const Contact = () => {
               </h2>
 
               <form
-                action="https://formbold.com/s/unique_form_id"
+                action="https://formmedium.com/s/unique_form_id"
                 method="POST"
               >
                 <div className="mb-7.5 flex flex-col gap-7.5 lg:flex-row lg:justify-between lg:gap-14">
@@ -135,7 +138,7 @@ const Contact = () => {
 
                   <button
                     aria-label="send message"
-                    className="inline-flex items-center gap-2.5 rounded-full bg-black px-6 py-3 font-medium text-white duration-300 ease-in-out hover:bg-blackho dark:bg-btndark"
+                    className="inline-flex items-center gap-2.5 rounded-full bg-black px-6 py-3 font-light text-white duration-300 ease-in-out hover:bg-blackho dark:bg-btndark"
                   >
                     Enviar
                     <svg
@@ -178,31 +181,39 @@ const Contact = () => {
                 Contatos
               </h2>
 
-              
-              <div className="5 mb-7">
-                <h3 className="mb-4 text-metatitle3 font-medium text-black dark:text-white">
-                  Endereço de E-mail
-                </h3>
-                <p>
-                  <a href="#">imprensa@scapolacomunica.com</a>
-                </p>
-              </div>
               <div>
-                <h4 className="mb-4 text-metatitle3 font-medium text-black dark:text-white">
-                  Telefone
-                </h4>
-                <p>
-                  <a href="#">31 99695-5494</a>
-                </p>
+                <div className="5 mb-7">
+                  <h3 className="mb-4 text-metatitle3 font-light text-black dark:text-white flex items-center">
+                    <FontAwesomeIcon icon={faEnvelope} className="mr-2 text-black dark:text-white" />
+                    E-mail
+                  </h3>
+                  <p>
+                    <a href="mailto:imprensa@scapolacomunica.com">imprensa@scapolacomunica.com</a>
+                  </p>
+                </div>
+              </div>
+              <div>            
                 <div className="5 mb-7 mt-7">
-                <h3 className="mb-4 text-metatitle3 font-medium text-black dark:text-white">
-                  Instagram
-                </h3>
-                <p>
-                  <a href="#">@scapolacomunica</a>
-                </p>
+                  <h3 className="mb-4 text-metatitle3 font-light text-black dark:text-white flex items-center">
+                    <FontAwesomeIcon icon={faInstagram} className="mr-2 text-black dark:text-white" />
+                    Instagram
+                  </h3>
+                  <p>
+                    <a href="#">@scapolacomunica</a>
+                  </p>
+                </div>
               </div>
-              </div>
+              <div className="5 mb-7 mt-7">
+                  <h3 className="mb-4 text-metatitle3 font-light text-black dark:text-white flex items-center">
+                    <FontAwesomeIcon icon={faWhatsapp} className="mr-2 text-black dark:text-white" />
+                    WhatsApp
+                  </h3>
+                  <p>
+                    <a href="https://wa.me/5531996955494" target="_blank" rel="noopener noreferrer">
+                      31 99695-5494
+                    </a>
+                  </p>
+                </div>
             </motion.div>
           </div>
         </div>

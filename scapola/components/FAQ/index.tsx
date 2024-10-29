@@ -51,7 +51,7 @@ const FAQ = () => {
               className="animate_left md:w-2/5 lg:w-1/2"
             >
               
-              <h2 className="relative mb-6 text-3xl font-bold text-black dark:text-white xl:text-hero">
+              <h2 className="relative mb-6 text-3xl font-medium text-black dark:text-white xl:text-hero">
                  Perguntas Frequentes
               </h2>
 

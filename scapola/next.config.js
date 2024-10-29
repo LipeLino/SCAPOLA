@@ -1,22 +1,13 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
-  output: 'export',  
-  reactStrictMode: true,
-  swcMinify: true,
+  eslint: {
+    dirs: ['pages', 'utils'],
+  },
+  assetPrefix: '/', // Ensures assets like images use relative paths
   images: {
-    unoptimized: true,
-    domains: ["localhost"],
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "cdn.sanity.io",
-        port: "",
-      },
-    ],
+    unoptimized: true, // Disables Next.js optimization for compatibility with `next export`
   },
 };
 
-const withImage = require('next-images');
-
-module.exports = withImage(nextConfig);
+module.exports = nextConfig;

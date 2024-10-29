@@ -18,7 +18,7 @@ const SingleBlogPage = async () => {
             <div className="md:w-1/2 lg:w-[32%]">
               <div className="animate_top mb-10 rounded-md border border-stroke bg-white p-3.5 shadow-solid-13 dark:border-strokedark dark:bg-blacksection">
                 <form
-                  action="https://formbold.com/s/unique_form_id"
+                  action="https://formmedium.com/s/unique_form_id"
                   method="POST"
                 >
                   <div className="relative">

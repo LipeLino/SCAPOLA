@@ -117,7 +117,7 @@ Add the correct font weight in Edge and Safari.
 
 b,
 strong {
-  font-weight: bolder;
+  font-weight: mediumer;
 }
 
 /*
@@ -1934,11 +1934,11 @@ video {
   line-height: 1.75rem;
 }
 
-.font-bold {
+.font-medium {
   font-weight: 700;
 }
 
-.font-medium {
+.font-light {
   font-weight: 500;
 }
 

@@ -24,7 +24,7 @@ const RelatedPost = async () => {
                   "No image"
                 )}
               </div>
-              <h5 className="text-md font-medium text-black transition-all duration-300 hover:text-primary dark:text-white dark:hover:text-primary">
+              <h5 className="text-md font-light text-black transition-all duration-300 hover:text-primary dark:text-white dark:hover:text-primary">
                 <Link href={`/blog/blog-details`}>
                   {" "}
                   {post.title.slice(0, 40)}...

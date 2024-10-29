@@ -22,20 +22,20 @@ assets->php>contact.php
 
 This procedure should work if everything is configured properly on the server side.
 
-## Using FormBold: A universal Form API (Recommended):
+## Using Formmedium: A universal Form API (Recommended):
 
-[FormBold](https://formbold.com/) is a powerful form API and serverless form backend that works with all hosting, SSG, and frameworks.
+[Formmedium](https://formmedium.com/) is a powerful form API and serverless form backend that works with all hosting, SSG, and frameworks.
 
-We highly recommend, using a serverless end-point ([FormBold](https://formbold.com/)) to make contact form dynamic. Since most users nowadays don't use PHP servers.
+We highly recommend, using a serverless end-point ([Formmedium](https://formmedium.com/)) to make contact form dynamic. Since most users nowadays don't use PHP servers.
 
-Here’s how to connect [FormBold](https://formbold.com/) API with your contact form:
+Here’s how to connect [Formmedium](https://formmedium.com/) API with your contact form:
 
-**Step#1**: Create an account on [FormBold](https://formbold.com/) and create a Form.
+**Step#1**: Create an account on [Formmedium](https://formmedium.com/) and create a Form.
 
 **Step#2**: Integrate the API into your contact Form using this code. Make sure your Form’s method is set to **POST**
 
 ```html
-<form action="https://formbold.com/s/unique_form_id" method="POST">
+<form action="https://formmedium.com/s/unique_form_id" method="POST">
   <input type="email" placeholder="email" name="email" />
   <input type="text" placeholder="subject" name="subject" />
   <textarea name="message" placeholder="message"></textarea>
@@ -44,9 +44,9 @@ Here’s how to connect [FormBold](https://formbold.com/) API with your contact 
 </form>
 ```
 
-You’ll find the `unique_form_id` in the [FormBold](https://formbold.com/) dashboard under \***\*Settings>Integration.\*\***
+You’ll find the `unique_form_id` in the [Formmedium](https://formmedium.com/) dashboard under \***\*Settings>Integration.\*\***
 
 Copy and paste it to the **action** attribute.
 
-This is just the basic setup, FormBold has a lot of great features like re-captcha for spam protection, and the ability to integrate it with other apps like Webhook, Slack, Notion, and GoogleSheet.
-Learn more about [FormBold](https://formbold.com/) [here](https://formbold.com/).
+This is just the basic setup, Formmedium has a lot of great features like re-captcha for spam protection, and the ability to integrate it with other apps like Webhook, Slack, Notion, and GoogleSheet.
+Learn more about [Formmedium](https://formmedium.com/) [here](https://formmedium.com/).

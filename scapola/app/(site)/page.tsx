@@ -24,6 +24,7 @@ export default function Home() {
     <main>
       <Hero />      
       <Feature />
+      <Brands />
       <About />
       <FeaturesTab />
       
@@ -31,7 +32,7 @@ export default function Home() {
       <FAQ />
       
       <Contact />
-      <Brands />
+      
     </main>
   );
 }
