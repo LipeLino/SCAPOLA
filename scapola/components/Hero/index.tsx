@@ -47,8 +47,11 @@ const Hero = () => {
             <div className="animate_right hidden md:w-1/2 lg:block">
               <div className="relative 2xl:-mr-7.5">
                 <div className="relative">
+                  <h4 className="text-4xl font-light pb-5  text-black dark:text-white">
+                    uma marca é feita de histórias,
+                  </h4>
                   <h4 className="text-5xl font-light text-black dark:text-white">
-                    Uma marca é feita de histórias, <br/> vamos contar a sua?
+                    vamos contar a sua?
                   </h4>
                 </div>
               </div>

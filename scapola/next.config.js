@@ -4,10 +4,10 @@ const nextConfig = {
   eslint: {
     dirs: ['pages', 'utils'],
   },
-  assetPrefix: '/', // Ensures assets like images use relative paths
+  output: 'export',
   images: {
-    unoptimized: true, // Disables Next.js optimization for compatibility with `next export`
-  },
+    unoptimized: true,
+  }
 };
 
 module.exports = nextConfig;

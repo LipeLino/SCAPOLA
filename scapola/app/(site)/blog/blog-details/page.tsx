@@ -88,49 +88,44 @@ const SingleBlogPage = async () => {
                 </div>
 
                 <h2 className="mb-5 mt-11 text-3xl font-semibold text-black dark:text-white 2xl:text-sectiontitle2">
-                  Kobe Steel plant that supplied
+                  É com muito prazer que anunciamos nosso novo cliente: Turismo.com! 
                 </h2>
 
                 <ul className="mb-9 flex flex-wrap gap-5 2xl:gap-7.5">
                   <li>
-                    <span className="text-black dark:text-white">Author: </span>{" "}
-                    Jhon Doe
+                    <span className="text-black dark:text-white">Autor: </span>{" "}
+                    Scapola Comunica
                   </li>
                   <li>
                     <span className="text-black dark:text-white">
-                      Published On: July 30, 2023
+                      Publicado em: 1 de Novembro, 2024
                     </span>{" "}
                   </li>
                   <li>
                     <span className="text-black dark:text-white">
-                      Category:
+                      Category:&nbsp;
                     </span>
-                    Events
+                     Events
                   </li>
                 </ul>
 
                 <div className="blog-details">
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Nunc quis nibh lorem. Duis sed odio lorem. In a efficitur
-                    leo. Ut venenatis rhoncus quam sed condimentum. Curabitur
-                    vel turpis in dolor volutpat imperdiet in ut mi. Integer non
-                    volutpat nulla. Nunc elementum elit viverra, tempus quam
-                    non, interdum ipsum.
+                  A agência é a concretização do sonho de Paula Ramos ramos e destaque na área de viagens de Monte Carmelo e, agora com sua nova expansão, Goiânia!
+
+                  A empresária é referência e tem uma história marcante. A Turismo.com surgiu em 2011 e desde de então se tornou a principal escolha de quem quer ter experiências incríveis e personalizadas por todo o mundo. 
+
+                  Com todos esses anos de experiência, a agência construiu um relacionamento com os melhores hotéis e fornecedores do mundo para atender os desejos dos seus clientes. 
+
                   </p>
 
                   <p>
-                    Aenean augue ex, condimentum vel metus vitae, aliquam porta
-                    elit. Quisque non metus ac orci mollis posuere. Mauris vel
-                    ipsum a diam interdum ultricies sed vitae neque. Nulla
-                    porttitor quam vitae pulvinar placerat. Nulla fringilla elit
-                    sit amet justo feugiat sodales. Morbi eleifend, enim non
-                    eleifend laoreet, odio libero lobortis lectus, non porttitor
-                    sem urna sit amet metus. In sollicitudin quam est,
-                    pellentesque consectetur felis fermentum vitae.
+                  E para voar ainda mais alto em Minas e no Brasil, a empresa confiou em quem entende de assessoria de imprensa. Viajar é bom, mas viajar com a Turismo.com é melhor ainda! 
+
+Aqui na Scapola Comunica levamos a comunicação estratégica a nível mundial assim como as viagens pela Turismo.com! Fiquem ligados!
                   </p>
 
-                  <div className="flex flex-wrap gap-5">
+                  <div className="flex flex-wrap gap-5 object-cover">
                     <Image
                       src={"/images/blog/blog-01.png"}
                       width={350}
@@ -138,25 +133,13 @@ const SingleBlogPage = async () => {
                       alt="image"
                     />
                     <Image
-                      src={"/images/blog/blog-02.png"}
+                      src={"/images/blog/blog-07.png"}
                       width={350}
-                      height={200}
+                      height={200}                      
                       alt="image"
                     />
                   </div>
-
-                  <h3 className="pt-8">
-                    Nunc elementum elit viverra, tempus quam non
-                  </h3>
-
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Nunc quis nibh lorem. Duis sed odio lorem. In a efficitur
-                    leo. Ut venenatis rhoncus quam sed condimentum. Curabitur
-                    vel turpis in dolor volutpat imperdiet in ut mi. Integer non
-                    volutpat nulla. Nunc elementum elit viverra, tempus quam
-                    non, interdum ipsum.
-                  </p>
+                  
                 </div>
 
                 <SharePost />

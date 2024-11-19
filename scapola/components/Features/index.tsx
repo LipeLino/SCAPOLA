@@ -26,7 +26,7 @@ const Feature = () => {
 
             {featuresData.map((feature, key) => (
               <SingleFeature feature={feature} key={key} 
-              customStyle={feature.id === 2 ? { fontSize: '21px' } : {}}
+              customStyle={feature.id === 2 ? { fontSize: '26px' } : {}}
               />
             ))}
             {/* <!-- Features item End --> */}

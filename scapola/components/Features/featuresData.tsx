@@ -6,26 +6,26 @@ const featuresData: Feature[] = [
     icon: "/images/icon/icon-01.svg",
     title: "Assessoria de Imprensa",
     description:
-      "Fortalecemos sua marca com presença estratégica na mídia.",
+      "Fortalecemos sua marca com presença orgânica na mídia.",
   },
   {
     id: 2,
     icon: "/images/icon/icon-02.svg",
     title: "Consultoria",
     description:
-      "Desenvolvemos soluções personalizadas em comunicação para ampliar sua influência.",
+      "Desenvolvemos soluções personalizadas para seu plano de comunicação.",
   },
   {
     id: 3,
     icon: "/images/icon/icon-03.svg",
     title: "Produção de Conteúdo",
     description:
-      "Criamos narrativas relevantes para destacar sua marca.",
+      "Criamos narrativas relevantes com textos feitos sob medida.",
   },
   {
     id: 4,
     icon: "/images/icon/icon-04.svg",
-    title: "LinkedIn",
+    title: "LinkedIn e Posicionamento ",
     description:
       "Aceleramos sua reputação e impacto na maior rede profissional.",
   },
@@ -41,7 +41,7 @@ const featuresData: Feature[] = [
     icon: "/images/icon/icon-06.svg",
     title: "Projetos Editoriais",
     description:
-      "Produzimos e gerenciamos publicações, como e-books e catálogos.",
+      "Produzimos e editamos projetos jornalísticos e institucionais.",
   },
 ];
 
