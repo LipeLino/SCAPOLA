@@ -12,6 +12,7 @@ import Pricing from "@/components/Pricing";
 import Contact from "@/components/Contact";
 import Blog from "@/components/Blog";
 import Testimonial from "@/components/Testimonial";
+import ThemeContainer from "@/components/ThemeContainer";
 
 export const metadata: Metadata = {
   title: "Scapola Comunica",
@@ -20,19 +21,16 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
+
   return (
-    <main>
-      <Hero />      
-      <Feature />
-      <Brands />
-      <About />
-      <FeaturesTab />
-      
-      
-      <FAQ />
-      
-      <Contact />
-      
-    </main>
+    <ThemeContainer>
+      <main>
+        <Hero />      
+        <Feature />
+        <Brands />
+        <About />
+        <FeaturesTab />
+      </main>
+    </ThemeContainer>
   );
 }

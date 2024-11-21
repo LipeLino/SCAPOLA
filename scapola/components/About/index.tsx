@@ -97,7 +97,7 @@ const About = () => {
       {/* <!-- ===== About Two Start ===== --> */}
       <section>
         <div className="mx-auto overflow-hidden px-4 md:px-8 2xl:px-0">
-          <div className="flex items-center gap-8 lg:gap-32.5">
+          <div className="flex flex-col md:flex-row items-center gap-8 lg:gap-19">
             <motion.div
               variants={{
                 hidden: {
@@ -114,7 +114,7 @@ const About = () => {
               whileInView="visible"
               transition={{ duration: 1, delay: 0.1 }}
               viewport={{ once: true }}
-              className="animate_left"
+              className="animate_left md:w-1/2 text-center md:text-left"
             >
               
               <h2 className="relative mb-6 text-4xl font-medium text-black dark:text-white xl:text-hero">
@@ -126,7 +126,8 @@ const About = () => {
               </p>
               <div>
                 <a
-                  href="/blog"
+                  href="https://redeunishop.com.br/recem-empreendedorismo-a-jornada-de-rodrigo-scapolatempore-no-linkedin-papo-limpo-podcast-13/"
+                  target="_blank"
                   className="group mt-7.5 inline-flex items-center gap-2.5 text-black hover:text-primary dark:text-white dark:hover:text-primary"
                 >
                   <span className="duration-300 group-hover:pr-2">
@@ -159,19 +160,15 @@ const About = () => {
               whileInView="visible"
               transition={{ duration: 1, delay: 0.1 }}
               viewport={{ once: true }}
-              className="animate_right relative mx-auto hidden aspect-[588/526.5] md:block md:w-1/2"
+              className="animate_right md:w-1/2"
             >
               <Image
                 src="/images/about/about-dark-02.png"
-                alt="About"
-                className="dark:hidden"
-                fill
-              />
-              <Image
-                src="/images/about/about-dark-02.png"
-                alt="About"
-                className="hidden dark:block"
-                fill
+                alt="Description of image"
+                layout="responsive"
+                width={500}
+                height={300}
+                className="object-cover"
               />
             </motion.div>
           </div>

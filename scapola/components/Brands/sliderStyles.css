@@ -1,0 +1,5 @@
+/* sliderStyles.css */
+.slick-prev:before,
+.slick-next:before {
+  color: blue;
+}

@@ -46,7 +46,7 @@ const featuresTabData: FeatureTab[] = [
     desc3: ``,
     image: "/images/features/rodrigo.png",
     imageDark: "/images/features/rodrigo.png",
-    linkedin: "https://www.linkedin.com/in/rodrigo-scapolatempore/"
+    linkedin: "https://www.linkedin.com/in/rodrigoscapolatempore/"
   },
   {
     id: "tabTwo",
@@ -56,7 +56,7 @@ const featuresTabData: FeatureTab[] = [
     desc3: ``,
     image: "/images/features/alexandre.png",
     imageDark: "/images/features/alexandre.png",
-    linkedin: "https://www.linkedin.com/in/alexandre-diniz/"
+    linkedin: "https://linkedin.com/in/alexandre-diniz-e-silva"
   },
   {
     id: "tabThree",
@@ -66,7 +66,7 @@ const featuresTabData: FeatureTab[] = [
     desc3: ``,
     image: "/images/features/samira.png",
     imageDark: "/images/features/samira.png",
-    linkedin: "https://www.linkedin.com/in/samira-batalha/"
+    linkedin: "https://linkedin.com/in/samira-batalha-5aaaa1232"
   },
   
 ];

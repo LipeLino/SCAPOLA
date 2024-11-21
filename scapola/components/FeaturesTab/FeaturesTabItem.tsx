@@ -9,28 +9,29 @@ const FeaturesTabItem = ({ featureTab }: { featureTab: FeatureTab }) => {
 
   return (
     <>
-      <div className="flex items-center gap-8 lg:gap-19">
-        <div className="md:w-1/2">
+      <div className="flex flex-col md:flex-row items-center gap-8 lg:gap-19">
+        <div className="md:w-1/2 text-center md:text-left">
           <h2 className="mb-7 text-3xl font-medium text-black dark:text-white xl:text-sectiontitle2">
             {title}
           </h2>
           <p className="mb-5">{desc1}</p>
-          <p className="w-11/12">{desc2}</p>
-          <p className="mt-5 w-11/12">{desc3}</p>
+          <p className="w-11/12 mx-auto md:mx-0">{desc2}</p>
+          <p className="mt-5 w-11/12 mx-auto md:mx-0">{desc3}</p>
           {linkedin && (
-            <a
-              href={linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-5 inline-flex items-center px-4 py-2 text-white bg-blue-600 rounded hover:bg-blue-700"
-            >
-              <FontAwesomeIcon icon={faLinkedin} className="w-4 h-4 mr-2" />
-              LinkedIn
+            <a href={linkedin} target="_blank" rel="noopener noreferrer" className="block mt-5">
+              <FontAwesomeIcon icon={faLinkedin} size="2x" className="mx-auto md:mx-0" />
             </a>
           )}
         </div>
-        <div className="relative mx-auto hidden aspect-[562/366] max-w-[550px] md:block md:w-1/2">
-          <Image src={image} alt={title} layout="fill" objectFit="cover" />
+        <div className="md:w-1/2">
+          <Image
+            src={image}
+            alt={title}
+            layout="responsive"
+            width={500}
+            height={300}
+            className="object-cover"
+          />
         </div>
       </div>
     </>

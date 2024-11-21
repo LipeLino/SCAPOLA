@@ -90,7 +90,7 @@ const Contact = () => {
 
                   <input
                     type="text"
-                    placeholder="Número: "
+                    placeholder="Telefone: "
                     className="w-full border-b border-stroke bg-transparent pb-3.5 focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-manatee dark:focus:placeholder:text-white lg:w-1/2"
                   />
                 </div>
@@ -199,7 +199,7 @@ const Contact = () => {
                     Instagram
                   </h3>
                   <p>
-                    <a href="#">@scapolacomunica</a>
+                    <a href="https://www.instagram.com/scapolacomunica/" target="_blank" >@scapolacomunica</a>
                   </p>
                 </div>
               </div>
