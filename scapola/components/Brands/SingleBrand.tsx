@@ -26,7 +26,7 @@ const SingleBrand = ({ brand }: { brand: Brand }) => {
       whileInView="visible"
       transition={{ duration: 1, delay: id }}
       viewport={{ once: true }}
-      className={`relative block flex items-center justify-center p-4 ${isDarkMode ? 'bg-gray-800' : 'bg-white'} w-48 h-48`}
+      className={`relative flex items-center justify-center p-4 ${isDarkMode ? 'bg-gray-800' : 'bg-gray-200'} w-48 h-48`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -38,7 +38,7 @@ const SingleBrand = ({ brand }: { brand: Brand }) => {
         style={{ objectFit: 'contain' }}
       />
       <Image
-        className="hidden opacity-50 transition-all duration-300 hover:opacity-100 dark:block"
+        className="hidden opacity-65 transition-all duration-300 hover:opacity-100 dark:block"
         src={image}
         alt={name}
         fill
