@@ -70,18 +70,19 @@ const Brands = () => {
   };
 
   return (
-    <>
-      <section className="border border-x-0 mt-10 border-y-stroke bg-alabaster py-11 dark:border-y-strokedark dark:bg-black">
-        <div className="mx-auto max-w-c-1390 px-4 md:px-8 2xl:px-0">
-          <h2 className="text-3xl font-medium text-center mb-14">Clientes Atendidos</h2>
-          <Slider {...settings}>
-            {brandData.map((brand, key) => (
+    <section className="border border-x-0 mt-10 border-y-stroke bg-alabaster py-11 dark:border-y-strokedark dark:bg-black">
+      <div className="mx-auto max-w-c-1390 px-4 md:px-8 2xl:px-0">
+        <h2 className="text-3xl font-medium text-center mb-14">Clientes Atendidos</h2>
+        <Slider {...settings}>
+          {brandData.map((brand, key) => (
+            // Check if the brand has an image before rendering
+            brand.image ? (
               <SingleBrand brand={brand} key={key} />
-            ))}
-          </Slider>
-        </div>
-      </section>
-    </>
+            ) : null
+          ))}
+        </Slider>
+      </div>
+    </section>
   );
 };
 
