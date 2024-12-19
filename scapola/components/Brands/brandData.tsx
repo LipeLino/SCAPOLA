@@ -76,7 +76,7 @@ const brandData: Brand[] = [
     id: 0.14,
     name: "Client",
     href: "#",
-    image: "/images/brand/brand-light-18.png",
+    image: "/images/brand/brand-dark-18.png",
     imageLight: "/images/brand/brand-dark-18.png",
   }, 
   {
@@ -125,21 +125,21 @@ const brandData: Brand[] = [
     id: 0.17,
     name: "Client",
     href: "#",
-    image: "/images/brand/brand-dark-21.png",
+    image: "/images/brand/brand-21.png",
     imageLight: "/images/brand/brand-21.png",
   },
   {
     id: 0.17,
     name: "Client",
     href: "#",
-    image: "/images/brand/brand-dark-22.png",
+    image: "/images/brand/brand-22.png",
     imageLight: "/images/brand/brand-22.png",
   },
   {
     id: 0.17,
     name: "Client",
     href: "#",
-    image: "/images/brand/brand-dark-23.png",
+    image: "/images/brand/brand-23.png",
     imageLight: "/images/brand/brand-23.png",
   },
   {

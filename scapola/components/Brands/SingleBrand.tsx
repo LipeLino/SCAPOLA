@@ -34,7 +34,7 @@ const SingleBrand = ({ brand }: { brand: Brand }) => {
           fill
         />
         <Image
-          className="hidden opacity-50 transition-all duration-300 hover:opacity-100 dark:block"
+          className="hidden opacity-50 transition-all duration-300 hover:opacity-100"
           src={imageLight}
           alt={name}
           fill
