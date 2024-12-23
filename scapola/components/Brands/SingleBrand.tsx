@@ -62,7 +62,7 @@ const SingleBrand = ({ brand }: { brand: Brand }) => {
       whileInView="visible"
       transition={{ duration: 1, delay: id }}
       viewport={{ once: true }}
-      className={`relative flex items-center justify-center p-4 ${isDarkMode ? 'bg-gray-800' : 'bg-gray-200'} w-48 h-48`}
+      className={`relative contain flex items-center justify-center p-4 ${isDarkMode ? 'bg-gray-800' : 'bg-gray-200' }  w-48 h-48 backdrop-blur transition-opacity duration-500`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
