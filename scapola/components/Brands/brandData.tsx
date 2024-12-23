@@ -63,18 +63,10 @@ const brandData: Brand[] = [
     image: "/images/brand/brand_jpaagro.png",
   }, 
   {
-<<<<<<< HEAD
-    id: 0.14,
-    name: "Client",
-    href: "#",
-    image: "/images/brand/brand-dark-18.png",
-    imageLight: "/images/brand/brand-dark-18.png",
-=======
     id: 10,
     name: "JPA Cred",
     description: "JPA Cred",
     image: "/images/brand/brand_jpacred.png",
->>>>>>> origin/main
   }, 
   {
     id: 11,
@@ -135,7 +127,7 @@ const brandData: Brand[] = [
     name: "Zema",
     description: "Zema",
     image: "/images/brand/brand_zema.svg",
-  }
+  },
 ];
 
 export default brandData;
