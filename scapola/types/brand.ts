@@ -3,4 +3,5 @@ export type Brand = {
   name: string;
   description: string;
   image: string;
+  isLoaded?: boolean;
 };

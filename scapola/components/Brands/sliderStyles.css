@@ -1,5 +1,50 @@
-/* sliderStyles.css */
+/* Custom styles for Slick Slider */
+.slick-prev,
+.slick-next {
+  width: 40px;
+  height: 40px;
+  z-index: 10;
+}
+
+.slick-prev {
+  left: -45px;
+}
+
+.slick-next {
+  right: -45px;
+}
+
 .slick-prev:before,
 .slick-next:before {
-  color: blue;
+  font-size: 40px;
+  color: #3B82F6; /* Tailwind blue-500 */
+  opacity: 1;
+}
+
+.slick-slide {
+  padding: 0 10px;
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .slick-prev:before,
+  .slick-next:before {
+    color: #60A5FA; /* Tailwind blue-400 for better contrast in dark mode */
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .slick-prev {
+    left: -25px;
+  }
+  
+  .slick-next {
+    right: -25px;
+  }
+  
+  .slick-prev:before,
+  .slick-next:before {
+    font-size: 24px;
+  }
 }
