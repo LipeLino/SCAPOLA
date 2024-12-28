@@ -14,13 +14,16 @@ const LinkedInButton = () => {
   return (
     <Link
       href="https://www.linkedin.com/company/scapolacomunica"
-      className="flex items-center justify-center rounded-full bg-primary pl-2.5 py-2.5 text-regular text-white duration-300 ease-in-out hover:bg-primaryho"
-    >
-      <FontAwesomeIcon icon={faLinkedin} className="" />
-      
+      className="flex items-center justify-center gap-2 rounded-full py-2.5 text-regular text-white duration-300 ease-in-out"
+    >Linkedin
+      <FontAwesomeIcon
+        icon={faLinkedin}
+        className="w-5 h-5 text-white"  // Define o tamanho e a cor do ícone
+      />
     </Link>
   );
 };
+
 
 const Header = () => {
   const [navigationOpen, setNavigationOpen] = useState(false);
@@ -168,12 +171,11 @@ const Header = () => {
 
           <div className="mt-7 flex items-center gap-6 xl:mt-0">
             <ThemeToggler />
-
             <Link
               href="https://www.linkedin.com/company/scapolacomunica"
               className="flex items-center justify-center rounded-full bg-primary px-7.5 py-2.5 text-regular text-white duration-300 ease-in-out hover:bg-primaryho"
             >
-              LinkedIn <LinkedInButton />
+              <LinkedInButton/>
             </Link>
           </div>
         </div>
