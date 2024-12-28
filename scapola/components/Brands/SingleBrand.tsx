@@ -46,7 +46,7 @@ const SingleBrand = ({ brand }: { brand: Brand }) => {
       </div>
       {isHovered && (
         <motion.div 
-          className="absolute inset-0 bg-black/80 text-white flex items-center justify-center text-center rounded-lg"
+          className="absolute bottom-0 left-0 right-0 bg-black/80 text-white flex items-center justify-center text-center rounded-b-lg"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}

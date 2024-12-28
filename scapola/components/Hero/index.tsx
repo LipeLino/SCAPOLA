@@ -48,7 +48,7 @@ const Hero = () => {
               <div className="relative 2xl:-mr-7.5">
                 <div className="relative">
                   <h4 className="text-4xl font-light pb-5  text-black dark:text-white">
-                    uma marca é feita de histórias,
+                    Uma marca é feita de histórias,
                   </h4>
                   <h4 className="text-5xl font-light text-black dark:text-white">
                     vamos contar a sua?
