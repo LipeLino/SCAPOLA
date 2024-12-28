@@ -18,8 +18,8 @@ const FeaturesTabItem = ({ featureTab }: { featureTab: FeatureTab }) => {
           <p className="w-11/12 mx-auto md:mx-0">{desc2}</p>
           <p className="mt-5 w-11/12 mx-auto md:mx-0">{desc3}</p>
           {linkedin && (
-            <a href={linkedin} target="_blank" rel="noopener noreferrer" className="block mt-5">
-              <FontAwesomeIcon icon={faLinkedin} size="2x" className="mx-auto md:mx-0" />
+            <a href={linkedin} target="_blank" rel="noopener noreferrer" className="block mt-5" style={{ pointerEvents: "none"}}>
+              <FontAwesomeIcon icon={faLinkedin} size="2x" className="mx-auto md:mx-0" style={{ pointerEvents: "auto", color: '#006bff'}}/>
             </a>
           )}
         </div>
