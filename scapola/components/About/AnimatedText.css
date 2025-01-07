@@ -1,0 +1,23 @@
+.relative {
+    position: relative;
+  }
+  
+  .absolute {
+    position: absolute;
+  }
+  
+  .transition-opacity {
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .opacity-0 {
+    opacity: 0;
+  }
+  
+  .opacity-100 {
+    opacity: 1;
+  }
+    
+  .dark .bg-titlebgdark {
+    background-color: #333; /* Replace with your desired dark color */
+  }

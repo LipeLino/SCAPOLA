@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const AnimatedText = () => {
   const texts = ["Sua marca", "Seu negócio", "Sua carreira", "Seu crescimento"];
@@ -7,15 +8,40 @@ const AnimatedText = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % texts.length);
-    }, 5000); // Change text every 3 seconds
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [texts.length]);
 
   return (
-    <span className="relative inline-block before:absolute before:bottom-2.5 before:left-0 before:-z-1 before:h-3 before:w-full before:bg-titlebg dark:before:bg-titlebgdark animate-fadeInOut">
-      {texts[currentIndex]}
-    </span>
+    <div className="w-[300px] flex align-center">
+      <AnimatePresence mode="wait">
+        <motion.span
+          key={currentIndex}
+          initial={{ 
+            opacity: 0, 
+            scale: 0.9,
+            filter: 'blur(10px)'
+          }}
+          animate={{ 
+            opacity: 1, 
+            scale: 1,
+            filter: 'blur(0px)'
+          }}
+          exit={{ 
+            opacity: 0, 
+            scale: 1.1,
+            filter: 'blur(10px)'
+          }}
+          transition={{
+            duration: 0.5,
+            ease: "easeInOut"
+          }}
+        >
+          {texts[currentIndex]}
+        </motion.span>
+      </AnimatePresence>
+    </div>
   );
 };
 
