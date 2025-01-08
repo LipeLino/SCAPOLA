@@ -23,7 +23,7 @@ const LinkedInButton = () => {
     <Link
       href="https://www.linkedin.com/company/scapolacomunica"
       prefetch={false}
-      className="flex items-center justify-center rounded-full bg-primary text-white px-4 py-2 text-sm hover:bg-primary-dark transition-colors duration-300"
+      className="flex items-center justify-center rounded-full bg-primary px-4 py-2 text-white duration-300 ease-in-out hover:bg-primaryho"
     >
       <FontAwesomeIcon
         icon={faLinkedin}

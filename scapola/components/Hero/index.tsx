@@ -13,10 +13,10 @@ const Hero = () => {
 
   return (
     <>
-      <section className="overflow-hidden pb-20 pt-35 md:pt-40 xl:pb-25 xl:pt-46">
+      <section className="overflow-hidden pt-35 md:pt-40 xl:pt-46">
         <div className="mx-auto max-w-c-1390 px-4 md:px-8 2xl:px-0">
           <div className="flex lg:items-center lg:gap-8 xl:gap-32.5">
-            <div className=" md:w-1/2">
+            <div className="md:w-1/2">
               <h4 className="mb-8 text-lg font-light text-black dark:text-white">
                 Assessoria em Relações Públicas e Comunicação
               </h4>
@@ -47,7 +47,7 @@ const Hero = () => {
             <div className="animate_right hidden md:w-1/2 lg:block">
               <div className="relative 2xl:-mr-7.5">
                 <div className="relative">
-                  <h4 className="text-4xl font-light pb-5  text-black dark:text-white">
+                  <h4 className="text-4xl font-light pb-5 text-black dark:text-white">
                     Uma marca é feita de histórias,
                   </h4>
                   <h4 className="text-5xl font-light text-black dark:text-white">

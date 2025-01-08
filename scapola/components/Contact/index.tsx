@@ -22,7 +22,10 @@ const Contact = () => {
   return (
     <>
       {/* <!-- ===== Contact Start ===== --> */}
-      <section id="support" className="px-4 md:px-8 2xl:px-0">
+      <section id="support" className="py-20 lg:py-25 xl:py-30">
+      <h2 className="text-3xl md:text-4xl font-medium text-black dark:text-white text-center mb-16">
+            Entre em contato conosco!
+          </h2>
         <div className="relative mx-auto max-w-c-1390 px-7.5 pt-10 lg:px-15 lg:pt-15 xl:px-20 xl:pt-20">
           <div className="absolute left-0 top-0 -z-1 h-2/3 w-full rounded-lg bg-gradient-to-t from-transparent to-[#dee7ff47] dark:bg-gradient-to-t dark:to-[#252A42]"></div>
           <div className="absolute bottom-[-255px] left-0 -z-1 h-full w-full">
@@ -60,7 +63,7 @@ const Contact = () => {
               className="animate_top w-full rounded-lg bg-white p-7.5 shadow-solid-8 dark:border dark:border-strokedark dark:bg-black md:w-3/5 lg:w-3/4 xl:p-15"
             >
               <h2 className="mb-15 text-3xl font-semibold text-black dark:text-white xl:text-sectiontitle2">
-                Deixe uma mensagem
+                Deixe uma mensagem:
               </h2>
 
               <form
@@ -104,7 +107,7 @@ const Contact = () => {
                 </div>
 
                 <div className="flex flex-wrap gap-4 xl:justify-between ">
-                  <div className="mb-4 flex md:mb-0">
+                  {/*<div className="mb-4 flex md:mb-0">
                     <input
                       id="default-checkbox"
                       type="checkbox"
@@ -134,7 +137,7 @@ const Contact = () => {
                       Ao clicar, você concorda em usar nossos termos de “Formulário”,
                       e consente o uso de cookies.
                     </label>
-                  </div>
+                  </div>*/}
 
                   <button
                     aria-label="send message"
@@ -210,7 +213,7 @@ const Contact = () => {
                   </h3>
                   <p>
                     <a href="https://wa.me/5531996955494" target="_blank" rel="noopener noreferrer">
-                      31 99695-5494
+                      (31) 99695-5494
                     </a>
                   </p>
                 </div>

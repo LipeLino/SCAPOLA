@@ -14,16 +14,16 @@ const menuData: Menu[] = [
     path: "/#features",
   },
   {
+    id: 4,
+    title: "Entre em contato",
+    newTab: false,
+    path: "/#support",
+  },
+  {
     id: 2.1,
     title: "Clientes na mídia",
     newTab: false,
     path: "/blog",
-  },
-  {
-    id: 4,
-    title: "Entre em contato",
-    newTab: false,
-    path: "/support",
   },
 ];
 

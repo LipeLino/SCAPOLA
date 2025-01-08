@@ -4,12 +4,12 @@ import Brands from "@/components/Brands";
 import Feature from "@/components/Features";
 import About from "@/components/About";
 import FeaturesTab from "@/components/FeaturesTab";
+import Contact from "@/components/Contact";
 import FunFact from "@/components/FunFact";
 import Integration from "@/components/Integration";
 import CTA from "@/components/CTA";
 import FAQ from "@/components/FAQ";
 import Pricing from "@/components/Pricing";
-import Contact from "@/components/Contact";
 import Blog from "@/components/Blog";
 import Testimonial from "@/components/Testimonial";
 import ThemeContainer from "@/components/ThemeContainer";
@@ -30,6 +30,7 @@ export default function Home() {
         <Brands />
         <About />
         <FeaturesTab />
+        <Contact />
       </main>
     </ThemeContainer>
   );
