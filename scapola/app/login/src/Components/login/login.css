@@ -1,0 +1,168 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+ 
+}
+
+.container {
+    width: 90%;
+    max-width: 450px;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    padding: 40px;
+    border-radius: 10px;
+    position: relative;
+    z-index: 10;
+}
+
+
+.logo {
+    display: block;
+    margin: 0 auto;
+    max-width: 175px;
+    height: auto;
+    margin-bottom: 20px;
+}
+.container h1{
+    text-align: center;
+    font-size: 30px;
+    color: #fff;
+}
+.container .input-field{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px auto;
+}
+.input-field input{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    outline: none;
+    border: 2px solid rgba(255,255,2555,0.2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding: 20px 25px;
+    transition: border-color 0.3s ease;
+    line-height: 30px;
+    caret-color: #fff;
+    text-indent: 2px;
+}
+
+.input-field input::placeholder{
+    color: transparent;
+
+}
+.input-field .placeholder-label {
+    position: absolute;
+    left: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #999;
+    transition: all 0.3s ease;
+
+}
+
+.input-field input:not(:placeholder-shown) + .placeholder-label,
+.input-field input:focus + .placeholder-label {
+    transform: translateY(-20px);
+    font-size: 10px;
+    padding-bottom: 16px;
+    color: rgba(255,255,2555,0.2);
+}
+.input-field .icon,.icon2{
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #fff;
+
+}
+.input-field .icon{
+    cursor: pointer;
+}
+.container .recall-forget{
+    display: flex;
+    justify-content: center;
+    font-size: 14.5px;
+    margin: -15px 0 15px;
+}
+.recall-forget label{
+    color: #fff;
+}
+.recall-forget input{
+    margin-right: 5px;
+}
+.recall-forget a{
+    color: #fff;
+    text-decoration: none;
+}
+.recall-forget a:hover{
+    text-decoration: underline;
+}
+.container button{
+    width: 100%;
+    height: 50px;
+    background-color: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0 ,0 ,0 ,0.1);
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    text-shadow: none;
+    color: black;
+}
+.login-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+  
+  .login-wrapper .container {
+    position: relative;
+    z-index: 10;
+  }
+  
+  .login-wrapper span {
+    opacity: 0.2;
+  }
+
+  .notification {
+    text-align: center;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.notification.success {
+    
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.notification.error.not-found {
+    background-color: #ffcccc;
+    color: #990000;
+    border: 1px solid #cc0000;
+}
+
+  @media (max-width: 480px) {
+    .container {
+        max-width: 90%; /* Ocupa 90% da largura da tela */
+    }
+}
