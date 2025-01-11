@@ -1,23 +1,21 @@
-
 :root {
-    color-scheme: light dark;
-  }
-*{
-    margin: 0;
-    padding: 0;
-    font-family: Helvetica;
-    box-sizing: border-box;
-    text-shadow: #000 1px 1px;
-    font-family: "Poppins", sans-serif;
+    --bg-color-dark: #080e26; /* Cor de fundo para o tema escuro */
+    --text-color-dark: #efefec; /* Cor do texto para o tema escuro */
 }
 
-.App{
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background-color: var(--bg-color-dark); /* Aplica a cor de fundo escura */
+    color: var(--text-color-dark); /* Aplica a cor do texto escuro */
+}
+
+.App {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    color: light-dark(#333b3c, #efefec);
-    background-color: light-dark(#efedea, #080e26);
+    background-color: var(--bg-color-dark); /* Define a cor de fundo da aplicação */
     background-size: cover;
     background-position: center;
 }

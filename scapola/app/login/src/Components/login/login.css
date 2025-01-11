@@ -2,7 +2,6 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
- 
 }
 
 .container {
@@ -16,6 +15,9 @@
     position: relative;
     z-index: 10;
 }
+
+/* Correções adicionais feitas acima */
+
 
 
 .logo {
@@ -72,7 +74,7 @@
     transform: translateY(-20px);
     font-size: 10px;
     padding-bottom: 16px;
-    color: rgba(255,255,2555,0.2);
+    color: rgba(255,255,255,0.2);
 }
 .input-field .icon,.icon2{
     position: absolute;
@@ -149,17 +151,17 @@
 }
 
 .notification.success {
-    
-    background-color: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
+    background-color: #dff0d8;
+    color: #3c763d;
+    border: 1px solid #d6e9c6;
 }
 
 .notification.error.not-found {
-    background-color: #ffcccc;
-    color: #990000;
-    border: 1px solid #cc0000;
+    background-color: #f2dede;
+    color: #a94442;
+    border: 1px solid #ebccd1;
 }
+
 
   @media (max-width: 480px) {
     .container {
