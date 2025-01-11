@@ -1,10 +1,21 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+'use client';
+import React, { useEffect } from 'react';
+import { createRoot } from 'react-dom/client';
+import App from './App.jsx';
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+function Main() {
+  useEffect(() => {
+    const rootElement = document.getElementById('root');
+    if (rootElement) {
+      createRoot(rootElement).render(
+        <React.StrictMode>
+          <App />
+        </React.StrictMode>
+      );
+    }
+  }, []);
+
+  return null; // Retorna null ou algum componente de fallback
+}
+
+export default Main;
