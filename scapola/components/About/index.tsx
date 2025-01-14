@@ -155,12 +155,20 @@ const About = () => {
           className="animate_top z-40 rounded-lg border border-white bg-white p-4 shadow-solid-3 transition-all hover:shadow-solid-4 dark:border-strokedark dark:bg-blacksection dark:hover:bg-hoverdark 
           md:col-span-2 row-span-2 transform scale-105 border-primary/20 flex items-center"
         >
-          <Image 
-            src="/images/podcast/top_voice.png" 
-            width={800} 
-            height={500} 
-            alt="Featured Podcast" className="rounded-lg w-full h-full object-cover"
-          />
+          <a
+            href="https://revistasoberana.com.br/2024/04/17/empreendedor-da-comunicacao-e-o-primeiro-de-uberlandia-a-receber-principal-selo-de-top-voice-do-linkedin/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full"
+          >
+            <Image 
+              src="/images/podcast/top_voice.png" 
+              width={800} 
+              height={500} 
+              alt="Featured Podcast" 
+              className="rounded-lg w-full h-full object-cover"
+            />
+          </a>
         </motion.div>
 
         {/* Second podcast card */}
