@@ -5,6 +5,8 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Contact = () => {
   /**
@@ -12,6 +14,34 @@ const Contact = () => {
    * Reason: To fix rehydration error
    */
   const [hasMounted, setHasMounted] = React.useState(false);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+  
+    const data = {
+      name: event.target.name.value,
+      email: event.target.email.value,
+      subject: event.target.subject.value,
+      tel: event.target.tel.value,
+      message: event.target.message.value,
+    };
+  
+    const response = await fetch("/api/send-email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+  
+    if (response.ok) {
+      toast.success('Mensagem enviada com sucesso!');
+    } else {
+      toast.error('Houve um erro ao enviar a mensagem. Verifique se preencheu todos os campos, ou o servidor pode estar fora do ar.');
+    }
+  };
+  
+
   React.useEffect(() => {
     setHasMounted(true);
   }, []);
@@ -66,18 +96,17 @@ const Contact = () => {
                 Deixe uma mensagem:
               </h2>
 
-              <form
-                action="https://formmedium.com/s/unique_form_id"
-                method="POST"
-              >
+              <form onSubmit={handleSubmit}>
                 <div className="mb-7.5 flex flex-col gap-7.5 lg:flex-row lg:justify-between lg:gap-14">
                   <input
+                    name="name"
                     type="text"
                     placeholder="Nome: "
                     className="w-full border-b border-stroke bg-transparent pb-3.5 focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-manatee dark:focus:placeholder:text-white lg:w-1/2"
                   />
 
                   <input
+                    name="email"
                     type="email"
                     placeholder="E-mail: "
                     className="w-full border-b border-stroke bg-transparent pb-3.5 focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-manatee dark:focus:placeholder:text-white lg:w-1/2"
@@ -86,12 +115,14 @@ const Contact = () => {
 
                 <div className="mb-12.5 flex flex-col gap-7.5 lg:flex-row lg:justify-between lg:gap-14">
                   <input
+                    name="subject"
                     type="text"
                     placeholder="Assunto: "
                     className="w-full border-b border-stroke bg-transparent pb-3.5 focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-manatee dark:focus:placeholder:text-white lg:w-1/2"
                   />
 
                   <input
+                    name="tel"
                     type="text"
                     placeholder="Telefone: "
                     className="w-full border-b border-stroke bg-transparent pb-3.5 focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-manatee dark:focus:placeholder:text-white lg:w-1/2"
@@ -100,6 +131,7 @@ const Contact = () => {
 
                 <div className="mb-11.5 flex">
                   <textarea
+                    name="message"
                     placeholder="Mensagem: "
                     rows={4}
                     className="w-full border-b border-stroke bg-transparent focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:focus:border-manatee dark:focus:placeholder:text-white"

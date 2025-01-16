@@ -4,7 +4,7 @@ const nextConfig = {
   eslint: {
     dirs: ['pages', 'utils'],
   },
-  output: 'export',
+  //output: 'export',
   images: {
     unoptimized: true,
   }

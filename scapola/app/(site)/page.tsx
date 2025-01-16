@@ -14,13 +14,14 @@ import Blog from "@/components/Blog";
 import Testimonial from "@/components/Testimonial";
 import ThemeContainer from "@/components/ThemeContainer";
 
-export const metadata: Metadata = {
-  title: "Scapola Comunica",
-  description: "Assessoria em relações públicas e comunicação",
-  // other metadata
-};
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+//import { useTheme } from "next-themes";
 
 export default function Home() {
+
+  //const { theme } = useTheme();
 
   return (
     <ThemeContainer>
@@ -32,6 +33,18 @@ export default function Home() {
         <FeaturesTab />
         <Contact />
       </main>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable={false}
+        pauseOnHover
+        theme='dark'
+      />
     </ThemeContainer>
   );
 }
