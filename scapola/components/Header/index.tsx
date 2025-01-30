@@ -1,15 +1,13 @@
 "use client";
-
 import Image from "next/image";
 import Link, { LinkProps } from "next/link";
-import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-
 import ThemeToggler from "./ThemeToggler";
 import menuData from "./menuData";
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import AnimatedPartnerLogo from './AnimatedPartnerLogo'; // Import the new component
+import './styles.css'; // Import the CSS file
 
 // Interface para definir a estrutura do item de menu
 interface MenuItem {
@@ -39,8 +37,6 @@ const Header = () => {
   const [dropdownTogglers, setDropdownTogglers] = useState<{[key: number]: boolean}>({});
   const [stickyMenu, setStickyMenu] = useState(false);
 
-  const pathUrl = usePathname();
-
   // Sticky menu
   const handleStickyMenu = () => {
     setStickyMenu(window.scrollY >= 80);
@@ -60,6 +56,20 @@ const Header = () => {
     }));
   };
 
+  const partnerLogos = [
+    {
+      src: "/images/brand/partners/partner_pressmanager.png",
+      alt: "Logo do Parceiro PressManager",
+      href: "https://www.pressmanager.com.br/",
+    },
+    //{
+      //src: "/images/brand/brand_aim.svg",
+      //alt: "Logo do Parceiro Exemplo 1",
+      //href: "https://www.example1.com/",
+
+    // Adicione mais logos conforme necessário
+  ];
+
   return (
     <header
       className={`fixed left-0 top-0 z-50 w-full py-7 ${
@@ -69,22 +79,23 @@ const Header = () => {
       <div className="relative mx-auto max-w-c-1390 items-center justify-between px-4 md:px-8 xl:flex 2xl:px-0">
         <div className="flex w-full items-center justify-between xl:w-1/4">
           <Link href="/">
-            <Image
-              src="/images/logo/logo-dark.svg"
-              alt="logo"
-              width={119.03}
-              height={30}
-              className="hidden w-full dark:block"
-            />
-            <Image
-              src="/images/logo/logo-light.svg"
-              alt="logo"
-              width={119.03}
-              height={30}
-              className="w-full dark:hidden"
-            />
+            <div className="flex items-center">
+              <Image
+                src="/images/logo/logo-dark.svg"
+                alt="logo"
+                width={119.03}
+                height={30}
+                className="hidden w-full dark:block"
+              />
+              <Image
+                src="/images/logo/logo-light.svg"
+                alt="logo"
+                width={119.03}
+                height={30}
+                className="w-full dark:hidden"
+              />
+            </div>
           </Link>
-
           {/* Hamburger Toggle BTN */}
           <button
             aria-label="Toggle navigation"
@@ -124,7 +135,6 @@ const Header = () => {
             </span>
           </button>
         </div>
-
         {/* Nav Menu Start */}
         <div
           className={`invisible h-0 w-full items-center justify-between xl:visible xl:flex xl:h-auto xl:w-full ${
@@ -133,7 +143,7 @@ const Header = () => {
           }`}
         >
           <nav>
-            <ul className="flex flex-col gap-5 xl:flex-row xl:items-center xl:gap-10">
+            <ul className="menu-list flex flex-col gap-5 xl:flex-row xl:items-center xl:gap-10">
               {menuData.map((menuItem: MenuItem, index: number) => (
                 <li key={index} className={menuItem.submenu ? "group relative" : ""}>
                   {menuItem.submenu ? (
@@ -142,7 +152,7 @@ const Header = () => {
                         onClick={() => toggleDropdown(index)}
                         className="flex cursor-pointer items-center justify-between gap-3 hover:text-primary"
                       >
-                        {menuItem.title}
+                        <span className="menu-item">{menuItem.title}</span>
                         <span>
                           <svg
                             className="h-3 w-3 cursor-pointer fill-waterloo group-hover:fill-primary"
@@ -153,13 +163,13 @@ const Header = () => {
                           </svg>
                         </span>
                       </button>
-
                       <ul className={`dropdown ${dropdownTogglers[index] ? "flex" : "hidden"}`}>
                         {menuItem.submenu.map((item: MenuItem, key: number) => (
                           <li key={key} className="hover:text-primary">
-                            <Link 
-                              href={item.path || "/"} 
+                            <Link
+                              href={item.path || "/"}
                               prefetch={false}
+                              className="menu-item"
                             >
                               {item.title}
                             </Link>
@@ -170,7 +180,7 @@ const Header = () => {
                   ) : (
                     <Link
                       href={menuItem.path || "/"}
-                      className="hover:text-primary"
+                      className="menu-item"
                       prefetch={false}
                     >
                       {menuItem.title}
@@ -180,14 +190,18 @@ const Header = () => {
               ))}
             </ul>
           </nav>
-
+          {/* Logo do Parceiro */}
+          <div className="mt-4 xl:mt-0 flex flex-col items-center">
+            <h2 className="text-lg font-semibold mb-2 menu-item">Parceiros</h2>
+            <AnimatedPartnerLogo logos={partnerLogos} />
+          </div>
           {/* Bloco de botões */}
           <div className="mt-7 flex items-center justify-center space-x-4 xl:mt-0">
             <ThemeToggler />
             <LinkedInButton />
           </div>
-          </div>
         </div>
+      </div>
     </header>
   );
 };

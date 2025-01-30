@@ -5,6 +5,6 @@ export type FeatureTab = {
   desc2: string;
   desc3: string;
   image: string;
-  imageDark: string;
+  imageDark?: string;
   linkedin: string;
 };
