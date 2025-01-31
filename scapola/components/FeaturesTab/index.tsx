@@ -2,12 +2,16 @@
 import Image from "next/image";
 import { useState } from "react";
 import FeaturesTabItem from "./FeaturesTabItem";
-import featuresTabData from "./featuresTabData";
-
+import featuresTabData from "./featuresTabData"; // Ensure correct import
 import { motion } from "framer-motion";
 
 const FeaturesTab = () => {
   const [currentTab, setCurrentTab] = useState("tabOne");
+
+  if (!Array.isArray(featuresTabData)) {
+    console.error("featuresTabData is not an array");
+    return null; // ou algum outro tratamento de erro
+  }
 
   return (
     <>
@@ -28,7 +32,6 @@ const FeaturesTab = () => {
               alt="Dotted Shape"
             />
           </div>
-
           {/* <!-- Tab Menues Start --> */}
           <motion.div
             variants={{
@@ -36,7 +39,6 @@ const FeaturesTab = () => {
                 opacity: 0,
                 y: -20,
               },
-
               visible: {
                 opacity: 1,
                 y: 0,
@@ -56,7 +58,6 @@ const FeaturesTab = () => {
                   : ""
               }`}
             >
-              
               <div className="md:w-3/5 lg:w-auto">
                 <button className="text-sm font-light text-black dark:text-white xl:text-regular">
                   Rodrigo Scapolatempore
@@ -71,32 +72,28 @@ const FeaturesTab = () => {
                   : ""
               }`}
             >
-              
               <div className="md:w-3/5 lg:w-auto">
                 <button className="text-sm font-light text-black dark:text-white xl:text-regular">
                   Alexandre Diniz
                 </button>
               </div>
             </div>
-               <div
+            <div
               onClick={() => setCurrentTab("tabThree")}
               className={`relative flex w-full cursor-pointer items-center gap-4 border-b border-stroke px-6 py-2 last:border-0 dark:border-strokedark md:w-auto md:border-0 xl:px-13.5 xl:py-5 ${
                 currentTab === "tabThree"
                   ? "active before:absolute before:bottom-0 before:left-0 before:h-1 before:w-full before:rounded-tl-[4px] before:rounded-tr-[4px] before:bg-primary"
                   : ""
               }`}
-            >              
-              
+            >
               <div className="md:w-3/5 lg:w-auto">
                 <button className="text-sm font-light text-black dark:text-white xl:text-regular">
                   Samira Batalha
                 </button>
               </div>
             </div>
-           
           </motion.div>
           {/* <!-- Tab Menues End --> */}
-
           {/* <!-- Tab Content Start --> */}
           <motion.div
             variants={{
@@ -104,7 +101,6 @@ const FeaturesTab = () => {
                 opacity: 0,
                 y: -20,
               },
-
               visible: {
                 opacity: 1,
                 y: 0,

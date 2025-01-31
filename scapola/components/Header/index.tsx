@@ -62,12 +62,12 @@ const Header = () => {
       alt: "Logo do Parceiro PressManager",
       href: "https://www.pressmanager.com.br/",
     },
-    //{
-      //src: "/images/brand/brand_aim.svg",
-      //alt: "Logo do Parceiro Exemplo 1",
-      //href: "https://www.example1.com/",
-
-    // Adicione mais logos conforme necessário
+    // {
+    //   src: "/images/brand/brand_aim.svg",
+    //   alt: "Logo do Parceiro Exemplo 1",
+    //   href: "https://www.example1.com/",
+    //   Adicione mais logos conforme necessário
+    // }
   ];
 
   return (
@@ -191,8 +191,8 @@ const Header = () => {
             </ul>
           </nav>
           {/* Logo do Parceiro */}
-          <div className="mt-4 xl:mt-0 flex flex-col items-center">
-            <h2 className="text-lg font-semibold mb-2 menu-item">Parceiros</h2>
+          <div className="mt-4 xl:mt-0 flex items-center">
+            <h2 className="text-lg mr-2 menu-item">Parceria</h2>
             <AnimatedPartnerLogo logos={partnerLogos} />
           </div>
           {/* Bloco de botões */}

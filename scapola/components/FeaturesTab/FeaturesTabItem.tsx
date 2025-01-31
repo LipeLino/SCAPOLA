@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 const FeaturesTabItem = ({ featureTab }: { featureTab: FeatureTab }) => {
-  const { title, desc1, desc2, desc3, image, imageDark, linkedin } = featureTab;
+  const { title, desc1, desc2, desc3, image, linkedin } = featureTab;
 
   return (
     <>
@@ -18,8 +18,14 @@ const FeaturesTabItem = ({ featureTab }: { featureTab: FeatureTab }) => {
           <p className="w-11/12 mx-auto md:mx-0">{desc2}</p>
           <p className="mt-5 w-11/12 mx-auto md:mx-0">{desc3}</p>
           {linkedin && (
-            <a href={linkedin} target="_blank" rel="noopener noreferrer" className="block mt-5" style={{ pointerEvents: "none"}}>
-              <FontAwesomeIcon icon={faLinkedin} size="2x" className="mx-auto md:mx-0" style={{ pointerEvents: "auto", color: '#006bff'}}/>
+            <a
+              href={linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 inline-flex items-center px-4 py-2 text-white bg-blue-600 rounded hover:bg-blue-700"
+            >
+              <FontAwesomeIcon icon={faLinkedin} className="w-4 h-4 mr-2" />
+              LinkedIn
             </a>
           )}
         </div>
