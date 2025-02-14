@@ -1,9 +1,9 @@
 export default function Head() {
   return (
     <>
-      <title> Solid | Next.js Template for Startup and SaaS</title>
+      <title>Scapola Comunuica</title>
       <meta content="width=device-width, initial-scale=1" name="viewport" />
-      <meta name="description" content="Built with Next.js and TypeScript" />
+      <meta name="description" content="Scapola Comunica - Assessoria Pública e Comunicação" />
       <link rel="icon" href="/images/favicon.ico" /> 
     </>
   );
