@@ -7,6 +7,7 @@ import ScrollToTop from "@/components/ScrollToTop";
 import { ThemeProvider } from "next-themes";
 import { Inter } from "next/font/google";
 import "../globals.css";
+import Head from "./head";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning><head><Head /></head>
       <body className={`dark:bg-black ${inter.className}`}>
         <ThemeProvider
           enableSystem={false}
