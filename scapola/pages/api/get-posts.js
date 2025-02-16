@@ -6,19 +6,27 @@ export default async function handler(req, res) {
     }
 
     const conexao = await mysql.createConnection({
-        host: 'localhost',
+        /*host: 'localhost',
         user: 'root',
         password: 'admin',
-        database: 'pub_testes'
-        /*host: 'srv1549.hstgr.io',
+        database: 'pub_testes'*/
+        host: 'srv1549.hstgr.io',
         user: 'u348493890_scapola_adm',
         password: 'Root123root',
-        database: 'u348493890_blog_scapola'*/
+        database: 'u348493890_blog_scapola'
     });
 
     try {
-        const [rows] = await conexao.execute("SELECT * FROM pub_testes order by ID");
-        res.status(200).json(rows);
+        const [rows] = await conexao.execute("SELECT * FROM pub_testes order by id DESC");
+
+        const formattedPosts = rows.map(post => ({
+            _id: post.id,         // Banco: "id" → Frontend: "_id"
+            title: post.titulo,   // Banco: "título" → Frontend: "title"
+            metadata: post.corpo, // Banco: "corpo" → Frontend: "metadata"
+            mainImage: "/images/blog/blog-05.png",
+        }));
+
+        res.status(200).json(formattedPosts);
     }
     catch (err) {
         res.status(500).json({message: "Erro ao buscar os posts."});

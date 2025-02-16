@@ -1,8 +1,8 @@
 import { Blog } from "@/types/blog";
 
-/*async function pegaPost(): Promise<Blog[]> {
+async function pegaPost(): Promise<Blog[]> {
   try {
-    const response = await fetch('/api/get-posts');
+    const response = await fetch("http://localhost:3000/api/get-posts");
     if (!response.ok) {
       throw new Error ("Erro com os posts.")
     }
@@ -13,9 +13,9 @@ import { Blog } from "@/types/blog";
   }
 }
 
-const BlogData2 = await pegaPost();*/
+const BlogData = await pegaPost();
 
-const BlogData: Blog[] = [
+/*const BlogData: Blog[] = [
   {
     _id: 2,
     mainImage: "/images/blog/blog-05.png",
@@ -32,4 +32,5 @@ const BlogData: Blog[] = [
   },
 ];
 
+*/
 export default BlogData;

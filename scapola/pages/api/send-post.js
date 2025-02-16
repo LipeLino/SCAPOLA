@@ -13,15 +13,10 @@ export default function handler (req, res) {
     }
 
     const conn = mysql.createConnection({
-        /*host: 'srv1549.hstgr.io',
+        host: 'srv1549.hstgr.io',
         user: 'u348493890_scapola_adm',
         password: 'Root123root',
-        database: 'u348493890_blog_scapola'*/
-        host: 'localhost',
-        user: 'admin',
-        password: 'root',
-        database: 'pub_testes',
-        port: 3306
+        database: 'u348493890_blog_scapola'
     });
 
     conn.connect((err) => {
