@@ -1,34 +1,21 @@
 import { Blog } from "@/types/blog";
 
+/*async function pegaPost(): Promise<Blog[]> {
+  try {
+    const response = await fetch('/api/get-posts');
+    if (!response.ok) {
+      throw new Error ("Erro com os posts.")
+    }
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+}
+
+const BlogData2 = await pegaPost();*/
+
 const BlogData: Blog[] = [
-  {
-    _id: 1,
-    mainImage: "/images/blog/blog-01.png",
-    title: "É com muito prazer que anunciamos nosso novo cliente: Turismo.com!",
-    metadata:
-      "A agência é a concretização do sonho de Paula Ramos ramos e destaque na área de viagens de Monte Carmelo e, agora com sua nova expansão, Goiânia!",
-  },
-  {
-    _id: 2,
-    mainImage: "/images/blog/blog-02.png",
-    title: "Cliente na mídia e na Globo TV Integração - Afiliada Globo de Araxá!",
-    metadata:
-      "Parabéns Patrícia Moço pelo projeto de impacto social e inclusão hashtag#ecoarte, do grupo Espaço EcoSense.",
-  },
-  {
-    _id: 2,
-    mainImage: "/images/blog/blog-03.png",
-    title: "Jogando junto com quem entende e com a estratégia certa de PR",
-    metadata:
-      "A Scapola Comunica colocou nosso parceiro Rafael Mendes, CFP®, referência no mercado financeiro, nas páginas impressas e no site do maior e mais tradicional veículo de economia e finanças do Brasil, o Valor Econômico.",
-  },
-  {
-    _id: 1,
-    mainImage: "/images/blog/blog-04.png",
-    title: "A Scapola Comunica deseja boas-vindas aos nossos novos clientes: JPA Agro e JPA Cred!",
-    metadata:
-      "A JPA AGRO é o único marketplace do agro no Brasil que auxilia o cliente de maneira completa. Atuando no mercado desde 2009, eles têm como objetivo conectar empresas e produtores através da inovação.",
-  },
   {
     _id: 2,
     mainImage: "/images/blog/blog-05.png",

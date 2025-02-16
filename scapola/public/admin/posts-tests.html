@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts do Blog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .post {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Posts do Blog</h1>
+    <div id="posts-container">
+    </div>
+
+    <script>
+        async function getPosts() {
+            try {
+                const response = await fetch('/api/get-posts');
+                if (!response.ok) {
+                    throw new Error('Erro ao buscar posts');
+                }
+                const posts = await response.json();
+                
+                console.log(posts);
+
+                const postsContainer = document.getElementById('posts-container');
+                
+                posts.forEach(post => {
+                    const postElement = document.createElement('div');
+                    postElement.classList.add('post');
+
+                    postElement.innerHTML = `
+                        <h2 class="post-title">${post.titulo}</h2>
+                        <p class="post-metadata"><b>Categoria:</b> ${post.categoria}</p>
+                        <p>${post.corpo}</p>
+                    `;
+
+                    postsContainer.appendChild(postElement);
+                });
+            } catch (error) {
+                console.error(error);
+                document.getElementById('posts-container').innerHTML = `<p>Não foi possível carregar os posts.</p>`;
+            }
+        }
+
+        window.onload = getPosts;
+    </script>
+</body>
+</html>
