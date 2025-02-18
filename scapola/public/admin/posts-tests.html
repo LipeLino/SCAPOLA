@@ -28,20 +28,20 @@
                 if (!response.ok) {
                     throw new Error('Erro ao buscar posts');
                 }
-                const posts = await response.json();
+                const postagens = await response.json();
                 
-                console.log(posts);
+                console.log(postagens);
 
                 const postsContainer = document.getElementById('posts-container');
                 
-                posts.forEach(post => {
+                postagens.forEach(post => {
                     const postElement = document.createElement('div');
                     postElement.classList.add('post');
 
                     postElement.innerHTML = `
-                        <h2 class="post-title">${post.titulo}</h2>
+                        <h2 class="post-title">${post.title}</h2>
                         <p class="post-metadata"><b>Categoria:</b> ${post.categoria}</p>
-                        <p>${post.corpo}</p>
+                        <p>${post.metadata}</p>
                     `;
 
                     postsContainer.appendChild(postElement);

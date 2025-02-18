@@ -6,10 +6,6 @@ export default async function handler(req, res) {
     }
 
     const conexao = await mysql.createConnection({
-        /*host: 'localhost',
-        user: 'root',
-        password: 'admin',
-        database: 'pub_testes'*/
         host: 'srv1549.hstgr.io',
         user: 'u348493890_scapola_adm',
         password: 'Root123root',
@@ -20,9 +16,9 @@ export default async function handler(req, res) {
         const [rows] = await conexao.execute("SELECT * FROM pub_testes order by id DESC");
 
         const formattedPosts = rows.map(post => ({
-            _id: post.id,         // Banco: "id" → Frontend: "_id"
-            title: post.titulo,   // Banco: "título" → Frontend: "title"
-            metadata: post.corpo, // Banco: "corpo" → Frontend: "metadata"
+            _id: post.id,
+            title: post.titulo,
+            metadata: post.corpo,
             mainImage: "/images/blog/blog-05.png",
         }));
 

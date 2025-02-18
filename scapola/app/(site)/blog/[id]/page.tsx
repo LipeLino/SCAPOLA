@@ -2,14 +2,50 @@ import RelatedPost from "@/components/Blog/RelatedPost";
 import SharePost from "@/components/Blog/SharePost";
 import { Metadata } from "next";
 import Image from "next/image";
+import { notFound } from "next/navigation";
+export const dynamic = "force-dynamic";
 
-export const metadata: Metadata = {
+/*export const metadata: Metadata = {
   title: "Blog",
   description: "This is Blog details page for Solid Pro",
   // other metadata
+};*/
+
+const postId = async (id: string) => {
+  try {
+    const response = await fetch(`http://localhost:3000/api/specific-post?id=${id}`, { cache: "no-store" });
+    
+    if (!response.ok) return null;
+    
+    return await response.json();
+  } catch (error) {
+    console.error("Erro ao buscar o post:", error);
+    return null;
+  }
 };
 
-const SingleBlogPage = async () => {
+/*export const generateMetadata = async ({ params }): Promise<Metadata> => {
+  const {id} = await params;
+  const post = await postId(id);
+  if (!post) {
+    return {
+      title: "Post não encontrado.",
+      description: "Não foi possível encontrar esse post, ou ele não existe.",
+    };
+  }
+    return {
+      title: post.title
+    };
+  };*/
+  
+const SingleBlogPage = async ({ params } : { params: { id: string }}) => {
+  const {id} = await params;
+  const post = await postId(id);
+
+  if (!post) {
+    notFound();
+  }
+
   return (
     <>
       <section className="pb-20 pt-35 lg:pb-25 lg:pt-45 xl:pb-30 xl:pt-50">
@@ -88,7 +124,7 @@ const SingleBlogPage = async () => {
                 </div>
 
                 <h2 className="mb-5 mt-11 text-3xl font-semibold text-black dark:text-white 2xl:text-sectiontitle2">
-                  É com muito prazer que anunciamos nosso novo cliente: Turismo.com! 
+                  {post.title}
                 </h2>
 
                 <ul className="mb-9 flex flex-wrap gap-5 2xl:gap-7.5">
@@ -103,27 +139,14 @@ const SingleBlogPage = async () => {
                   </li>
                   <li>
                     <span className="text-black dark:text-white">
-                      Category:&nbsp;
+                      Categoria:&nbsp;
                     </span>
                      Events
                   </li>
                 </ul>
 
                 <div className="blog-details">
-                  <p>
-                  A agência é a concretização do sonho de Paula Ramos ramos e destaque na área de viagens de Monte Carmelo e, agora com sua nova expansão, Goiânia!
-
-                  A empresária é referência e tem uma história marcante. A Turismo.com surgiu em 2011 e desde de então se tornou a principal escolha de quem quer ter experiências incríveis e personalizadas por todo o mundo. 
-
-                  Com todos esses anos de experiência, a agência construiu um relacionamento com os melhores hotéis e fornecedores do mundo para atender os desejos dos seus clientes. 
-
-                  </p>
-
-                  <p>
-                  E para voar ainda mais alto em Minas e no Brasil, a empresa confiou em quem entende de assessoria de imprensa. Viajar é bom, mas viajar com a Turismo.com é melhor ainda! 
-
-Aqui na Scapola Comunica levamos a comunicação estratégica a nível mundial assim como as viagens pela Turismo.com! Fiquem ligados!
-                  </p>
+                  <p>{post.metadata}</p>
 
                   <div className="flex flex-wrap gap-5 object-cover">
                     <Image

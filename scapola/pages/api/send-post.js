@@ -21,17 +21,20 @@ export default function handler (req, res) {
 
     conn.connect((err) => {
         if (err) {
-            return res.status(500).json({message: "Erro na conexão.", error: err.message})
+            conn.end();
+            return res.status(500).json({message: "Erro na conexão.", error: err.message});
         }
 
         const query = 'INSERT INTO pub_testes (titulo, corpo, categoria) VALUES (?, ?, ?)';
         
         conn.query (query, [titulo, corpo, categoria], (err, result) => {
-            conn.end();
+
             if (err) {
+                conn.end();
                 return res.status(500).json({message: "Erro na inserção"})
             }
-            res.status(201).json({message: "Sucesso"})
+            conn.end();
+            return res.status(201).json({message: "Sucesso"});
         });
     });
 }
