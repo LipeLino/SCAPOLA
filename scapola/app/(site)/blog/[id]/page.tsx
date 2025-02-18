@@ -38,6 +38,10 @@ const postId = async (id: string) => {
     };
   };*/
   
+  const formatText = (text: string) => {
+    return text.split("\n").map(paragraph => `<p>${paragraph}</p>`).join("");
+  };
+
 const SingleBlogPage = async ({ params } : { params: { id: string }}) => {
   const {id} = await params;
   const post = await postId(id);
@@ -145,8 +149,7 @@ const SingleBlogPage = async ({ params } : { params: { id: string }}) => {
                   </li>
                 </ul>
 
-                <div className="blog-details">
-                  <p>{post.metadata}</p>
+                <div className="blog-details" dangerouslySetInnerHTML={{ __html: formatText(post.metadata) }}></div>
 
                   <div className="flex flex-wrap gap-5 object-cover">
                     <Image
@@ -169,7 +172,6 @@ const SingleBlogPage = async ({ params } : { params: { id: string }}) => {
               </div>
             </div>
           </div>
-        </div>
       </section>
     </>
   );
