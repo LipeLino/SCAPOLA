@@ -34,3 +34,14 @@ const BlogData = await pegaPost();
 
 */
 export default BlogData;
+
+export async function getStaticProps() {
+  const posts = await pegaPost(); // Busca os posts da API
+
+  return {
+    props: {
+      posts, // Passa os posts como props para a página
+    },
+    revalidate: 120, // Revalida a página a cada 60 segundos
+  };
+}
