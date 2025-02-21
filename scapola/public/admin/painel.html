@@ -109,7 +109,7 @@
 
         const formData = new FormData();
         formData.append("imagem", img);
-        console.log(img, formData);
+        //console.log(img, formData);
 
         try {
             // Envia a imagem primeiro
@@ -139,7 +139,10 @@
                     document.getElementById("mensagem").innerHTML = `<label class="erro-msg">Erro ao enviar a imagem!</label>`;
                 }*/
                 if (imagemResposta.ok) {
-                document.getElementById("mensagem").innerHTML = `<label class="sucesso-msg">Imagem enviada com sucesso!</label>`;
+                    const respostaJson = await imagemResposta.json();
+
+                document.getElementById("mensagem").innerHTML = `<label class="sucesso-msg">Imagem enviada com sucesso!</label><label class="sucesso-msg">A URL da sua imagem é: <a href="${respostaJson.urlFinal}" target="_blank">${respostaJson.urlFinal}</a></label>`;
+                
                 document.getElementById("postForm").reset();
             } else {
                 document.getElementById("mensagem").innerHTML = `<label class="erro-msg">Erro ao enviar a imagem!</label>`;
