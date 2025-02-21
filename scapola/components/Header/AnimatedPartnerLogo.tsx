@@ -24,7 +24,7 @@ const AnimatedPartnerLogo: React.FC<AnimatedPartnerLogoProps> = ({ logos }) => {
   }, [logos.length]);
 
   return (
-    <div className="w-[150px] h-[50px] flex items-center justify-center">
+    <div className="w-[100px] h-[40px] flex items-center justify-center">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentIndex}

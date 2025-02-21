@@ -4,15 +4,15 @@ import Link, { LinkProps } from "next/link";
 import { useEffect, useState } from "react";
 import ThemeToggler from "./ThemeToggler";
 import menuData from "./menuData";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import AnimatedPartnerLogo from './AnimatedPartnerLogo'; // Import the new component
-import './styles.css'; // Import the CSS file
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import AnimatedPartnerLogo from "./AnimatedPartnerLogo"; // Import the new component
+import "./styles.css"; // Import the CSS file
 
 // Interface para definir a estrutura do item de menu
 interface MenuItem {
   title: string;
-  path?: LinkProps['href'];
+  path?: LinkProps["href"];
   submenu?: MenuItem[];
 }
 
@@ -23,10 +23,7 @@ const LinkedInButton = () => {
       prefetch={false}
       className="flex items-center justify-center rounded-full bg-primary px-4 py-2 text-white duration-300 ease-in-out hover:bg-primaryho"
     >
-      <FontAwesomeIcon
-        icon={faLinkedin}
-        className="w-5 h-5 mr-2"
-      />
+      <FontAwesomeIcon icon={faLinkedin} className="mr-2 h-5 w-5" />
       LinkedIn
     </Link>
   );
@@ -34,7 +31,9 @@ const LinkedInButton = () => {
 
 const Header = () => {
   const [navigationOpen, setNavigationOpen] = useState(false);
-  const [dropdownTogglers, setDropdownTogglers] = useState<{[key: number]: boolean}>({});
+  const [dropdownTogglers, setDropdownTogglers] = useState<{
+    [key: number]: boolean;
+  }>({});
   const [stickyMenu, setStickyMenu] = useState(false);
 
   // Sticky menu
@@ -73,7 +72,9 @@ const Header = () => {
   return (
     <header
       className={`fixed left-0 top-0 z-50 w-full py-7 ${
-        stickyMenu ? "bg-white !py-4 shadow transition duration-100 dark:bg-black" : ""
+        stickyMenu
+          ? "bg-white !py-4 shadow transition duration-100 dark:bg-black"
+          : ""
       }`}
     >
       <div className="relative mx-auto max-w-c-1390 items-center justify-between px-4 md:px-8 xl:flex 2xl:px-0">
@@ -127,7 +128,7 @@ const Header = () => {
                   }`}
                 ></span>
                 <span
-                  className={`delay-400 absolute left-0 top- 2.5 block h-0.5 w-full rounded-sm bg-black duration-200 ease-in-out dark:bg-white ${
+                  className={`delay-400 top- 2.5 absolute left-0 block h-0.5 w-full rounded-sm bg-black duration-200 ease-in-out dark:bg-white ${
                     !navigationOpen ? "!h-0 delay-200" : "h-0.5"
                   }`}
                 ></span>
@@ -145,7 +146,10 @@ const Header = () => {
           <nav>
             <ul className="menu-list flex flex-col gap-5 xl:flex-row xl:items-center xl:gap-10">
               {menuData.map((menuItem: MenuItem, index: number) => (
-                <li key={index} className={menuItem.submenu ? "group relative" : ""}>
+                <li
+                  key={index}
+                  className={menuItem.submenu ? "group relative" : ""}
+                >
                   {menuItem.submenu ? (
                     <>
                       <button
@@ -163,7 +167,9 @@ const Header = () => {
                           </svg>
                         </span>
                       </button>
-                      <ul className={`dropdown ${dropdownTogglers[index] ? "flex" : "hidden"}`}>
+                      <ul
+                        className={`dropdown ${dropdownTogglers[index] ? "flex" : "hidden"}`}
+                      >
                         {menuItem.submenu.map((item: MenuItem, key: number) => (
                           <li key={key} className="hover:text-primary">
                             <Link
@@ -191,8 +197,8 @@ const Header = () => {
             </ul>
           </nav>
           {/* Logo do Parceiro */}
-          <div className="mt-4 xl:mt-0 flex items-center">
-            <h2 className="text-lg mr-2 menu-item">Parceria: </h2>
+          <div className="mt-2 flex items-center xl:mt-0">
+            <h2 className="menu-item mr-1 text-xs">Parceria</h2>
             <AnimatedPartnerLogo logos={partnerLogos} />
           </div>
           {/* Bloco de botões */}
