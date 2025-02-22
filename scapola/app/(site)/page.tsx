@@ -16,6 +16,7 @@ import ThemeContainer from "@/components/ThemeContainer";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ToastifyContainer from "@/components/Toastify/ToastifyContainer";
 
 //import { useTheme } from "next-themes";
 
@@ -33,18 +34,7 @@ export default function Home() {
         <FeaturesTab />
         <Contact />
       </main>
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        hideProgressBar
-        newestOnTop={false}
-        closeOnClick={false}
-        rtl={false}
-        pauseOnFocusLoss={false}
-        draggable={false}
-        pauseOnHover
-        theme='dark'
-      />
+      <ToastifyContainer />
     </ThemeContainer>
   );
 }

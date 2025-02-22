@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Postagens</title>
+</head>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        form {
+            width: 30%;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: whitesmoke;
+            box-sizing: border-box;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            margin-top: 2px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="file"] {
+            border: 1px solid rgb(172, 172, 172);
+            cursor: pointer;
+            background-color: white;
+        }
+        input[type="submit"] {
+            background-color: #287fa7;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        input[type="submit"]:hover {
+            background-color: #133c4e;
+        }
+        .sucesso-msg {
+            color: green;
+            font-weight: bold;
+        }
+        .erro-msg {
+            color: red;
+            font-weight: bold;
+        }
+</style>
+<body>
+    <form id="postForm" enctype="multipart/form-data">
+        <label>NOVA POSTAGEM</label>
+        <label>Título: </label>
+        <input type="text" id="titulo">
+        <label>Insira seu Texto: </label>
+        <textarea id="corpo" placeholder="Escreva seu texto aqui" rows="4" ></textarea>
+        <label>Autor: </label>
+        <select name="autor" id="autor">
+            <option value="1">Alexandre Diniz</option>
+            <option value="2">Rodrigo Scapolatempore</option>
+            <option value="3">Samira Batalha</option>
+          </select>
+        <label>Categoria: </label>
+        <select name="categoria" id="categoria">
+            <option value="1">Emplacadas</option>
+            <option value="2">Institucional</option>
+            <option value="3">Clientes</option>
+            <option value="4">Destaques</option>
+            <option value="5">Outros</option>
+          </select>
+        <label>Insira uma imagem para o post: </label>
+        <input type="file" name="imagem" id="imagem" accept="image/*">
+        <input type="submit" value="Enviar">
+        <div id="mensagem"></div>
+    </form>
+</body>
+</html>
+
+<script>
+    document.getElementById("postForm").addEventListener("submit", async function (event) {
+        event.preventDefault(); // Impede o reload da página
+
+        /* const titulo = document.getElementById("titulo").value;
+        const corpo = document.getElementById("corpo").value;
+        const categoria = document.getElementById("categoria").value;
+        const autor = document.getElementById("autor").value;
+
+        const fulldate = new Date();
+        const listaMeses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+        const mesNome = listaMeses[fulldate.getMonth()];
+        
+        const data = `${fulldate.getDate()} de ${mesNome}, ${fulldate.getFullYear()}`;
+        
+        const filename = document.getElementById("imagem");*/
+        const img = document.getElementById("imagem").files[0];
+
+        /*const slug = "post-titulo";*/
+
+        const formData = new FormData();
+        formData.append("imagem", img);
+        //console.log(img, formData);
+
+        try {
+            // Envia a imagem primeiro
+            const imagemResposta = await fetch("/api/send-image", {
+                method: "POST",
+                body: formData,
+            });
+
+/*             if (imagemResposta.ok) {
+                const imgFinal = await imagemResposta.json();
+
+                const resposta = await fetch("/api/send-post", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({titulo, corpo, categoria, autor, data, img, slug})
+                    });
+
+                    const resultado = await resposta.json();
+
+                    if (resposta.ok) {
+                        document.getElementById("mensagem").innerHTML = `<label class="sucesso-msg">${resultado.message || "Postagem enviada com sucesso!"}</label>`;
+                        document.getElementById("postForm").reset();
+                    } else {
+                        document.getElementById("mensagem").innerHTML = `<label class="erro-msg">${resultado.message || "Erro ao enviar a postagem!"}</label>`;
+                    }
+                } else {
+                    document.getElementById("mensagem").innerHTML = `<label class="erro-msg">Erro ao enviar a imagem!</label>`;
+                }*/
+                if (imagemResposta.ok) {
+                    const respostaJson = await imagemResposta.json();
+
+                document.getElementById("mensagem").innerHTML = `<label class="sucesso-msg">Imagem enviada com sucesso!</label><label class="sucesso-msg">A URL da sua imagem é: <a href="${respostaJson.urlFinal}" target="_blank">${respostaJson.urlFinal}</a></label>`;
+                
+                document.getElementById("postForm").reset();
+            } else {
+                document.getElementById("mensagem").innerHTML = `<label class="erro-msg">Erro ao enviar a imagem!</label>`;
+            }
+        } catch (error) {
+            document.getElementById("mensagem").innerHTML = `<label class="erro-msg">Erro: ${error.message}</label>`;
+        }
+        });
+</script>
