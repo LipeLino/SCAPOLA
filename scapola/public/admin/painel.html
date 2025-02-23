@@ -52,6 +52,10 @@
         .sucesso-msg {
             color: green;
             font-weight: bold;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            display: block;
+            max-width: 100%;
         }
         .erro-msg {
             color: red;
@@ -91,7 +95,7 @@
     document.getElementById("postForm").addEventListener("submit", async function (event) {
         event.preventDefault(); // Impede o reload da página
 
-        /* const titulo = document.getElementById("titulo").value;
+        const titulo = document.getElementById("titulo").value;
         const corpo = document.getElementById("corpo").value;
         const categoria = document.getElementById("categoria").value;
         const autor = document.getElementById("autor").value;
@@ -102,10 +106,10 @@
         
         const data = `${fulldate.getDate()} de ${mesNome}, ${fulldate.getFullYear()}`;
         
-        const filename = document.getElementById("imagem");*/
-        const img = document.getElementById("imagem").files[0];
+        const filename = document.getElementById("imagem");
+        const img = document.getElementById("imagem").files[0]; //arquivo de imagem principal
 
-        /*const slug = "post-titulo";*/
+        const slug = "post-titulo";
 
         const formData = new FormData();
         formData.append("imagem", img);
@@ -118,27 +122,31 @@
                 body: formData,
             });
 
-/*             if (imagemResposta.ok) {
+
+            //Enviando o restante dos itens textuais:
+             if (imagemResposta.ok) {
                 const imgFinal = await imagemResposta.json();
+                const imgUrlFinal = imgFinal.urlFinal;
 
                 const resposta = await fetch("/api/send-post", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({titulo, corpo, categoria, autor, data, img, slug})
+                    body: JSON.stringify({titulo, corpo, categoria, autor, data, imgUrlFinal, slug})
                     });
 
                     const resultado = await resposta.json();
 
                     if (resposta.ok) {
-                        document.getElementById("mensagem").innerHTML = `<label class="sucesso-msg">${resultado.message || "Postagem enviada com sucesso!"}</label>`;
+                        document.getElementById("mensagem").innerHTML = `<label class="sucesso-msg">Postagem feita com sucesso!</label>
+                        <label class="sucesso-msg">A URL da sua imagem é: <a href="${imgUrlFinal}" target="_blank">${imgUrlFinal}</a></label>`;
                         document.getElementById("postForm").reset();
                     } else {
                         document.getElementById("mensagem").innerHTML = `<label class="erro-msg">${resultado.message || "Erro ao enviar a postagem!"}</label>`;
                     }
                 } else {
                     document.getElementById("mensagem").innerHTML = `<label class="erro-msg">Erro ao enviar a imagem!</label>`;
-                }*/
-                if (imagemResposta.ok) {
+                }
+/*                if (imagemResposta.ok) {
                     const respostaJson = await imagemResposta.json();
 
                 document.getElementById("mensagem").innerHTML = `<label class="sucesso-msg">Imagem enviada com sucesso!</label><label class="sucesso-msg">A URL da sua imagem é: <a href="${respostaJson.urlFinal}" target="_blank">${respostaJson.urlFinal}</a></label>`;
@@ -146,7 +154,7 @@
                 document.getElementById("postForm").reset();
             } else {
                 document.getElementById("mensagem").innerHTML = `<label class="erro-msg">Erro ao enviar a imagem!</label>`;
-            }
+            }*/
         } catch (error) {
             document.getElementById("mensagem").innerHTML = `<label class="erro-msg">Erro: ${error.message}</label>`;
         }

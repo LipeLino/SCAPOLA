@@ -1,7 +1,6 @@
 import { Brand } from "@/types/brand";
 
-const brandData: Brand[] = [
-  
+const brandData: Brand[] = [  
   {
     id: 1,
     name: "AG Immigration",

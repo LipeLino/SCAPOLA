@@ -6,7 +6,7 @@ export default function handler (req, res) {
         return res.status(405).json({message: "Método não suportado"});
     }
 
-    const {titulo, corpo, categoria, autor, data, img, slug} = req.body;
+    const {titulo, corpo, categoria, autor, data, imgUrlFinal, slug} = req.body;
 
     if (!titulo || !corpo || !categoria || !autor) {
         return res.status(400).json({message: "Todos os campos são obrigatórios"});
@@ -28,11 +28,11 @@ export default function handler (req, res) {
         //const query = 'INSERT INTO pub_testes (titulo, corpo, categoria) VALUES (?, ?, ?)';
         const query = 'INSERT INTO publicacoes (titulo, corpo_texto, categoria_id, autor_id, data_pub, img1, slug) VALUES (?, ?, ?, ?, ?, ?, ?)';
         
-        conn.query (query, [titulo, corpo, categoria, autor, data, img, slug], (err, result) => {
+        conn.query (query, [titulo, corpo, categoria, autor, data, imgUrlFinal, slug], (err, result) => {
 
             if (err) {
                 conn.end();
-                return res.status(500).json({message: "Erro na inserção"})
+                return res.status(500).json({message: "Erro na inserção", error: err.message})
             }
             conn.end();
             return res.status(201).json({message: "Sucesso"});

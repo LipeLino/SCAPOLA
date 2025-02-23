@@ -19,7 +19,7 @@ export default async function handler(req, res) {
     });
 
     try {
-        const [rows] = await conexao.execute("SELECT * FROM pub_testes WHERE id = ?", [id]);
+        const [rows] = await conexao.execute("SELECT * FROM publicacoes WHERE id = ?", [id]);
 
         if (rows.length === 0) {
             return res.status(404).json({message: "Post não identificado."})
@@ -28,8 +28,12 @@ export default async function handler(req, res) {
         const post = {
             _id: rows[0].id, 
             title: rows[0].titulo,
-            metadata: rows[0].corpo,
-            mainImage: "/images/blog/blog-05.png",
+            metadata: rows[0].corpo_texto,
+            body: rows[0].corpo_texto,
+            mainImage: rows[0].img1,
+            publishedAt: rows[0].data_pub,
+            category: rows[0].categoria_id,
+            author: rows[0].autor_id,
         };
 
         res.status(200).json(post);

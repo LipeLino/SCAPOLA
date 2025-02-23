@@ -64,7 +64,7 @@ const SingleBlogPage = async ({ params } : { params: { id: string }}) => {
                   <div className="relative">
                     <input
                       type="text"
-                      placeholder="Search Here..."
+                      placeholder="Pesquise por posts"
                       className="w-full rounded-lg border border-stroke px-6 py-4 shadow-solid-12 focus:border-primary focus:outline-none dark:border-strokedark dark:bg-black dark:shadow-none dark:focus:border-primary"
                     />
 
@@ -89,7 +89,7 @@ const SingleBlogPage = async ({ params } : { params: { id: string }}) => {
 
               <div className="animate_top mb-10 rounded-md border border-stroke bg-white p-9 shadow-solid-13 dark:border-strokedark dark:bg-blacksection">
                 <h4 className="mb-7.5 text-2xl font-semibold text-black dark:text-white">
-                  Categories
+                  Categorias
                 </h4>
 
                 <ul>
@@ -119,8 +119,8 @@ const SingleBlogPage = async ({ params } : { params: { id: string }}) => {
                 <div className="mb-10 w-full overflow-hidden ">
                   <div className="relative aspect-[97/60] w-full sm:aspect-[97/44]">
                     <Image
-                      src={"/images/blog/blog-01.png"}
-                      alt="Kobe Steel plant that supplied"
+                      src={post.mainImage}
+                      alt=""
                       fill
                       className="rounded-md object-cover object-center"
                     />
@@ -138,7 +138,7 @@ const SingleBlogPage = async ({ params } : { params: { id: string }}) => {
                   </li>
                   <li>
                     <span className="text-black dark:text-white">
-                      Publicado em: 1 de Novembro, 2024
+                      Publicado em: {post.publishedAt}
                     </span>{" "}
                   </li>
                   <li>
@@ -149,11 +149,11 @@ const SingleBlogPage = async ({ params } : { params: { id: string }}) => {
                   </li>
                 </ul>
 
-                <div className="blog-details" dangerouslySetInnerHTML={{ __html: formatText(post.metadata) }}></div>
+                <div className="blog-details" dangerouslySetInnerHTML={{ __html: formatText(post.body) }}></div>
 
                   <div className="flex flex-wrap gap-5 object-cover">
                     <Image
-                      src={"/images/blog/blog-01.png"}
+                      src={post.mainImage}
                       width={350}
                       height={200}
                       alt="image"

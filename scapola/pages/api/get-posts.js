@@ -13,13 +13,18 @@ export default async function handler(req, res) {
     });
 
     try {
-        const [rows] = await conexao.execute("SELECT * FROM pub_testes order by id DESC");
+        const [rows] = await conexao.execute("SELECT * FROM publicacoes order by id DESC");
 
         const formattedPosts = rows.map(post => ({
             _id: post.id,
             title: post.titulo,
-            metadata: post.corpo,
-            mainImage: "/images/blog/blog-05.png",
+            slug: 'empty',
+            metadata: post.corpo_texto,
+            body: post.corpo_texto,
+            mainImage: post.img1,
+            author: post.autor_id,
+            publishedAt: post.data_pub,
+            category: post.categoria_id,
         }));
 
         res.status(200).json(formattedPosts);
