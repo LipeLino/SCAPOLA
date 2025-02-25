@@ -197,8 +197,8 @@ const Header = () => {
             </ul>
           </nav>
           {/* Logo do Parceiro */}
-          <div className="mt-2 flex items-center xl:mt-0">
-            <h2 className="menu-item mr-1 text-xs">Parceria</h2>
+          <div className="mt-4 flex items-center xl:mt-0">
+            <h2 className="menu-item mr-1 text-xs">Parceria: </h2>
             <AnimatedPartnerLogo logos={partnerLogos} />
           </div>
           {/* Bloco de botões */}
