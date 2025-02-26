@@ -85,6 +85,8 @@
           </select>
         <label>Insira uma imagem para o post: </label>
         <input type="file" name="imagem" id="imagem" accept="image/*">
+        <!-- <label>Insira uma segunda imagem para o post (opcional): </label>
+        <input type="file" name="imagem2" id="imagem2" accept="image/*"> -->
         <input type="submit" value="Enviar">
         <div id="mensagem"></div>
     </form>
@@ -106,24 +108,23 @@
         
         const data = `${fulldate.getDate()} de ${mesNome}, ${fulldate.getFullYear()}`;
         
-        const filename = document.getElementById("imagem");
         const img = document.getElementById("imagem").files[0]; //arquivo de imagem principal
+        //const img_opt = document.getElementById("imagem2").files[0]; //arquivo de imagem secundário
 
         const slug = "post-titulo";
 
         const formData = new FormData();
         formData.append("imagem", img);
-        //console.log(img, formData);
 
+        //Enviando primeiro a imagem, para obter a URL:
         try {
-            // Envia a imagem primeiro
             const imagemResposta = await fetch("/api/send-image", {
                 method: "POST",
                 body: formData,
             });
 
 
-            //Enviando o restante dos itens textuais:
+            //Enviando o restante dos itens textuais, junto com a URL obtida acima:
              if (imagemResposta.ok) {
                 const imgFinal = await imagemResposta.json();
                 const imgUrlFinal = imgFinal.urlFinal;

@@ -31,13 +31,13 @@ const SectionHeader = ({ headerInfo }: { headerInfo: HeaderInfo }) => {
       >
         {title && (
           <div className="mb-4 inline-block rounded-full bg-zumthor px-4.5 py-1.5 dark:border dark:border-strokedark dark:bg-blacksection">
-            <span className="text-sectiontitle font-light text-black dark:text-white">
+            <span className="text-black dark:text-white">
               {title}
             </span>
           </div>
         )}
         {subtitle && (
-          <h2 className="mx-auto mb-4 text-3xl font-medium text-black dark:text-white md:w-4/5 xl:w-1/2 xl:text-sectiontitle3">
+          <h2 className="mx-auto mb-4 text-3xl font-medium text-black dark:text-white md:w-4/5 xl:w-1/2 lg:text-sectiontitle3">
             {subtitle}
           </h2>
         )}

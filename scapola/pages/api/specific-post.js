@@ -19,7 +19,18 @@ export default async function handler(req, res) {
     });
 
     try {
-        const [rows] = await conexao.execute("SELECT * FROM publicacoes WHERE id = ?", [id]);
+        const [rows] = await conexao.execute(`
+            SELECT publicacoes.id, titulo, autor_id, data_pub, categoria_id, slug, corpo_texto, img1, img2,
+            categorias.nome AS categoria_nome,
+            autores.nome AS autor_nome
+            FROM publicacoes
+            INNER JOIN categorias
+            ON publicacoes.categoria_id = categorias.id
+            INNER JOIN autores
+            ON publicacoes.autor_id = autores.id
+            WHERE publicacoes.id = ?
+            ORDER BY publicacoes.id DESC;
+            `, [id]);
 
         if (rows.length === 0) {
             return res.status(404).json({message: "Post não identificado."})
@@ -31,9 +42,10 @@ export default async function handler(req, res) {
             metadata: rows[0].corpo_texto,
             body: rows[0].corpo_texto,
             mainImage: rows[0].img1,
+            optionalImage: rows[0].img2,
             publishedAt: rows[0].data_pub,
-            category: rows[0].categoria_id,
-            author: rows[0].autor_id,
+            category: rows[0].categoria_nome,
+            author: rows[0].autor_nome,
         };
 
         res.status(200).json(post);

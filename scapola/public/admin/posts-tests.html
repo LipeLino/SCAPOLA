@@ -5,14 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Posts do Blog</title>
     <style>
+        h2{
+            margin: 0;
+            padding: 0;
+        }
         body {
             font-family: Arial, sans-serif;
         }
         .post {
             border: 1px solid #ccc;
-            padding: 15px;
-            margin: 10px 0;
+            padding: 10px;
             border-radius: 5px;
+            border-color: black;
+            background-color: rgb(175, 175, 175);
+            margin-top: 10px;
+        }
+        .delete-btn{
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            background-color: red;
+        }
+        .delete-btn:hover {
+            background-color: darkred;
         }
     </style>
 </head>
@@ -40,8 +57,11 @@
 
                     postElement.innerHTML = `
                         <h2 class="post-title">${post.title}</h2>
-                        <p class="post-metadata"><b>Categoria:</b> ${post.categoria}</p>
-                        <p>${post.metadata}</p>
+                        <h3 class="post-id">ID: ${post._id}</h3>
+                        <p class="post-categoria"><b>Categoria:</b> ${post.category}</p>
+                        <p class="post-autor"><b>Autor:</b> ${post.author}</p>
+                        <p class="post-texto"><b>Postagem:</b> ${post.body}</p>
+                        <button class="delete-btn" onclick="excluirPost(${post._id})">Excluir Postagem</button>
                     `;
 
                     postsContainer.appendChild(postElement);
@@ -53,6 +73,27 @@
         }
 
         window.onload = getPosts;
+
+        async function excluirPost(id) {
+        if (!confirm("Tem certeza que deseja excluir este post?")) return;
+        try {
+            const response = await fetch(`/api/delete-post?id=${id}`, {
+                method: 'DELETE',
+            });
+
+            if (!response.ok) {
+                throw new Error('Erro ao excluir o post');
+            }
+
+            const data = await response.json();
+            alert(data.message);
+            document.getElementById('posts-container').innerHTML = ""; // Limpa o container
+            getPosts();
+        } catch (error) {
+            console.error('Erro ao excluir o post:', error);
+            alert('Não foi possível excluir o post');
+        }
+    }
     </script>
 </body>
 </html>

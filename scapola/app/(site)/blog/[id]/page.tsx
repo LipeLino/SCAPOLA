@@ -87,7 +87,7 @@ const SingleBlogPage = async ({ params } : { params: { id: string }}) => {
                 </form>
               </div>
 
-              <div className="animate_top mb-10 rounded-md border border-stroke bg-white p-9 shadow-solid-13 dark:border-strokedark dark:bg-blacksection">
+              {/* <div className="animate_top mb-10 rounded-md border border-stroke bg-white p-9 shadow-solid-13 dark:border-strokedark dark:bg-blacksection">
                 <h4 className="mb-7.5 text-2xl font-semibold text-black dark:text-white">
                   Categorias
                 </h4>
@@ -109,7 +109,7 @@ const SingleBlogPage = async ({ params } : { params: { id: string }}) => {
                     <a href="#">Rounded</a>
                   </li>
                 </ul>
-              </div>
+              </div> */}
 
               <RelatedPost />
             </div>
@@ -134,7 +134,7 @@ const SingleBlogPage = async ({ params } : { params: { id: string }}) => {
                 <ul className="mb-9 flex flex-wrap gap-5 2xl:gap-7.5">
                   <li>
                     <span className="text-black dark:text-white">Autor: </span>{" "}
-                    Scapola Comunica
+                    {post.author}
                   </li>
                   <li>
                     <span className="text-black dark:text-white">
@@ -145,7 +145,7 @@ const SingleBlogPage = async ({ params } : { params: { id: string }}) => {
                     <span className="text-black dark:text-white">
                       Categoria:&nbsp;
                     </span>
-                     Events
+                     {post.category}
                   </li>
                 </ul>
 
@@ -158,12 +158,13 @@ const SingleBlogPage = async ({ params } : { params: { id: string }}) => {
                       height={200}
                       alt="image"
                     />
-                    <Image
-                      src={"/images/blog/blog-07.png"}
+                    {post.optionalImage && (
+                      <Image
+                      src={post.optionalImage}
                       width={350}
                       height={200}                      
                       alt="image"
-                    />
+                    />)}
                   </div>
                   
                 </div>

@@ -13,7 +13,17 @@ export default async function handler(req, res) {
     });
 
     try {
-        const [rows] = await conexao.execute("SELECT * FROM publicacoes order by id DESC");
+        const [rows] = await conexao.execute(`
+            SELECT publicacoes.id, titulo, autor_id, data_pub, categoria_id, slug, corpo_texto, img1,
+            categorias.nome AS categoria_nome,
+            autores.nome AS autor_nome
+            FROM publicacoes
+            INNER JOIN categorias
+            ON publicacoes.categoria_id = categorias.id
+            INNER JOIN autores
+            ON publicacoes.autor_id = autores.id
+            ORDER BY publicacoes.id DESC;
+            `);
 
         const formattedPosts = rows.map(post => ({
             _id: post.id,
@@ -22,9 +32,9 @@ export default async function handler(req, res) {
             metadata: post.corpo_texto,
             body: post.corpo_texto,
             mainImage: post.img1,
-            author: post.autor_id,
+            author: post.autor_nome,
+            category: post.categoria_nome,
             publishedAt: post.data_pub,
-            category: post.categoria_id,
         }));
 
         res.status(200).json(formattedPosts);

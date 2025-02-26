@@ -20,6 +20,11 @@ import ToastifyContainer from "@/components/Toastify/ToastifyContainer";
 
 //import { useTheme } from "next-themes";
 
+export const metadata = {
+  title: "Scapola Comunica",
+  description: "",
+};
+
 export default function Home() {
 
   //const { theme } = useTheme();
