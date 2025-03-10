@@ -10,16 +10,15 @@ export async function middleware(req: NextRequest) {
   
   if (!token) {
     console.log("Middleware: Token não encontrado");
-    return NextResponse.redirect(new URL("/auth/signin", req.url));
+    return NextResponse.redirect(new URL("/auth/login", req.url));
   }
 
   if (!secretKey) {
     console.log("Middleware: SECRET_KEY não encontrada");
-    return NextResponse.redirect(new URL("/auth/signin", req.url));
+    return NextResponse.redirect(new URL("/auth/login", req.url));
   }
 
   try {
-    // Usando jose em vez de jsonwebtoken para compatibilidade com Edge Runtime
     const encoder = new TextEncoder();
     await jwtVerify(token, encoder.encode(secretKey));
     
@@ -27,11 +26,10 @@ export async function middleware(req: NextRequest) {
     return NextResponse.next();
   } catch (error) {
     console.error("Middleware: Erro na verificação do token:", error);
-    return NextResponse.redirect(new URL("/auth/signin", req.url));
+    return NextResponse.redirect(new URL("/auth/login", req.url));
   }
 }
 
-// Protege as rotas administrativas
 export const config = {
   matcher: ["/admin/:path*"],
 };

@@ -1,8 +1,9 @@
 "use client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { motion } from "framer-motion";
 import Image from "next/image";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Signin = () => {
   const [data, setData] = useState({ username: "", password: "" });
@@ -24,11 +25,13 @@ const Signin = () => {
       const response = await res.json();
 
       if (!res.ok) {
+        toast.error('Erro ao fazer login. Verifique suas credenciais');
         throw new Error(response.error || "Erro ao fazer login");
+      } else {
+        toast.success('Login realizado! Redirecionando...');
       }
 
-      //document.cookie = `token=${response.token}; path=/; max-age=43200; Secure; HttpOnly; SameSite=lax`;
-      router.push("/admin"); // Redireciona para o painel
+      router.push("/admin");
     } catch (err: any) {
       setError(err.message);
     }
@@ -55,24 +58,7 @@ const Signin = () => {
             />
           </div>
 
-          <motion.div
-            variants={{
-              hidden: {
-                opacity: 0,
-                y: -20,
-              },
-
-              visible: {
-                opacity: 1,
-                y: 0,
-              },
-            }}
-            initial="hidden"
-            whileInView="visible"
-            transition={{ duration: 1, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="animate_top rounded-lg bg-white px-7.5 pt-7.5 shadow-solid-8 dark:border dark:border-strokedark dark:bg-black xl:px-15 xl:pt-15"
-          >
+          <div className="animate_top rounded-lg bg-white px-7.5 pt-7.5 shadow-solid-8 dark:border dark:border-strokedark dark:bg-black xl:px-15 xl:pt-15">
             <h2 className="mb-12 text-center text-3xl font-semibold text-black dark:text-white xl:text-sectiontitle2">
               Login
             </h2>
@@ -90,7 +76,7 @@ const Signin = () => {
 
                 <input
                   type="password"
-                  placeholder="Password"
+                  placeholder="Senha"
                   name="password"
                   value={data.password}
                   onChange={(e) =>
@@ -105,11 +91,11 @@ const Signin = () => {
                   aria-label="login with email and password"
                   className="inline-flex items-center gap-2.5 rounded-full bg-black mb-4 px-6 py-3 font-light text-white duration-300 ease-in-out hover:bg-blackho dark:bg-btndark dark:hover:bg-blackho"
                 >
-                  Log in
+                  Entrar
                 </button>
               </div>
             </form>
-          </motion.div>
+          </div>
         </div>
       </section>
       {/* <!-- ===== SignIn Form End ===== --> */}

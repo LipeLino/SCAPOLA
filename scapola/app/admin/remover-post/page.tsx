@@ -8,10 +8,9 @@ const DeletarPostagens = () => {
   const [mensagem, setMensagem] = useState<string>("");
 
   useEffect(() => {
-    // Função para buscar os posts da API
     const fetchPosts = async () => {
       try {
-        const response = await fetch('/api/posts'); // Sua API que retorna os posts
+        const response = await fetch('/api/posts');
         const data = await response.json();
         setPosts(data);
       } catch (error) {
@@ -23,7 +22,6 @@ const DeletarPostagens = () => {
     fetchPosts();
   }, []);
 
-  // Função para deletar um post
   const handleDelete = async (id: number) => {
     try {
       const response = await fetch(`/api/posts/${id}`, {

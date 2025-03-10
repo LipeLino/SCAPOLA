@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import SingleBrand from "./SingleBrand";
 import brandData from "./brandData";
 import Slider from "react-slick";

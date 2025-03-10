@@ -23,7 +23,7 @@ export default function AdminHeader() {
       const data = await response.json();
       
       if (data.success) {
-        router.push('/auth/signin');
+        router.push('/auth/login');
       } else {
         console.error('Erro no logout:', data.message);
       }

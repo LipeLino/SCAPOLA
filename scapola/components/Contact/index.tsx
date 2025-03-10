@@ -41,7 +41,6 @@ const Contact = () => {
     }
   };
   
-
   React.useEffect(() => {
     setHasMounted(true);
   }, []);

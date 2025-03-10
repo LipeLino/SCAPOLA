@@ -4,9 +4,7 @@ import { cookies } from "next/headers";
 
 export async function POST() {
   try {
-    // Versão corrigida para deletar o cookie "token"
-    const cookieStore = await cookies();
-    
+    const cookieStore = await cookies();    
     cookieStore.delete("token");
     
     return NextResponse.json({ 

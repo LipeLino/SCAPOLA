@@ -3,10 +3,10 @@ import { NextResponse } from "next/server";
 
 async function getConnection() {
     return mysql.createConnection({
-        host: 'srv1549.hstgr.io',
-        user: 'u348493890_scapola_adm',
-        password: 'Root123root',
-        database: 'u348493890_blog_scapola'
+        host: process.env.DB_HOST_1,
+        user: process.env.DB_USER_1,
+        password: process.env.DB_PASSWORD_1,
+        database: process.env.DB_DATABASE_1
     });
 }
 

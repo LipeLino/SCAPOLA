@@ -16,6 +16,7 @@ async function pegaBrand(): Promise<Brand[]> {
 const brandData = await pegaBrand();
 export default brandData;
 
+
 // const brandData: Brand[] = [  
 //   {
 //     id: 1,

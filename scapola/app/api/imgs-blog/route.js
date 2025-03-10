@@ -12,7 +12,7 @@ export async function POST(req) {
             return NextResponse.json({ message: "Nenhuma imagem enviada." }, { status: 400 });
         }
 
-        // Lendo o conteúdo do arquivo para um Buffer
+        //Lendo o conteúdo do arquivo para um Buffer
         const arrayBuffer = await imagem.arrayBuffer();
         const buffer = Buffer.from(arrayBuffer);
         
@@ -20,21 +20,19 @@ export async function POST(req) {
         const finalFilename = `${Date.now()}${ext}`;
         const imgPathTemp = path.join(process.cwd(), "public", "images", "blog", finalFilename);
 
-        // Salvando localmente antes do upload
         await fs.writeFile(imgPathTemp, buffer);
 
         const client = new Client();
         await client.access({
-            host: "185.173.111.234",
-            user: "u348493890.scapolacomunica.com",
-            password: "aN25%,jWnn1",
+            host: process.env.DB_HOST_2,
+            user: process.env.DB_USER_2,
+            password: process.env.DB_PASSWORD_2,
         });
 
         const hostPath = `/public_html/cdn/blog_imgs/${finalFilename}`;
         await client.uploadFrom(imgPathTemp, hostPath);
         client.close();
 
-        // Exclui o arquivo temporário após o envio
         await fs.unlink(imgPathTemp);
 
         const urlFinal = `https://cdn.scapolacomunica.com/blog_imgs/${finalFilename}`;
