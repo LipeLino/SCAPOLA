@@ -27,7 +27,7 @@ const SingleBrand = ({ brand }: { brand: Brand }) => {
         className: "relative flex items-center justify-center p-2 bg-slate-100 h-36 sm:h-28 lg:h-48 hover:shadow-lg transition-shadow duration-300 rounded-lg mx-2",
         onMouseEnter: () => setIsHovered(true),
         onMouseLeave: () => setIsHovered(false),
-        whileHover: { scale: 1.05 },
+        //whileHover: { scale: 1.01 },
         tabIndex: 0,
         "aria-label": `Brand: ${name}`,
         onFocus: () => setIsHovered(true),
@@ -48,10 +48,10 @@ const SingleBrand = ({ brand }: { brand: Brand }) => {
         <motion.div 
           className="absolute bottom-0 left-0 right-0 bg-black/80 text-white flex items-center justify-center text-center rounded-b-lg"
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          animate={{ opacity: 0.8 }}
           exit={{ opacity: 0 }}
         >
-          <p className="text-sm px-2">{description}</p>
+          <p className="text-sm px-2 p-1 font-bold">{description}</p>
         </motion.div>
       )}
     </motion.div>

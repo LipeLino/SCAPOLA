@@ -35,10 +35,10 @@ const CustomNextArrow: React.FC<ArrowProps> = ({ className, style, onClick }) =>
 
 const Brands = () => {
   const settings = {
-    dots: false,
+    dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 5,
+    slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,

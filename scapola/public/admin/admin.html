@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página com Header Responsivo</title>
+  <!-- Link para o Tailwind CSS (se você já tem o Tailwind no seu projeto, ignore esta linha) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Estilos específicos para garantir um bom layout responsivo */
+    header {
+      transition: all 0.3s ease;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+
+  <!-- Header -->
+  <header class="flex justify-between items-center bg-white p-4 shadow-md">
+    <!-- Logo -->
+    <img src="logo.png" alt="Logo" class="max-h-20 w-auto">
+
+    <!-- Botão de Deslogar -->
+    <a href="#" class="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700">
+      Deslogar
+    </a>
+  </header>
+
+  <!-- Conteúdo da página -->
+  <main class="p-6">
+    <h1 class="text-2xl font-bold mb-4">Bem-vindo à sua área de administração!</h1>
+    <p class="text-lg">Aqui você pode gerenciar as postagens do blog.</p>
+  </main>
+
+</body>
+</html>

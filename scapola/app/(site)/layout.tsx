@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Lines from "@/components/Lines";
@@ -18,6 +19,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  
+const pathname = usePathname();
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`dark:bg-black ${inter.className}`}>
@@ -26,7 +30,7 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="light"
         >
-          <Lines />
+          {pathname !== "/blog" && <Lines />}
           <Header />
           <ToasterContext />
           {children}
