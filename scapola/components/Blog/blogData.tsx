@@ -2,7 +2,7 @@ import { Blog } from "@/types/blog";
 
 async function pegaPost(): Promise<Blog[]> {
   try {
-    const response = await fetch("http://localhost:3000/api/get-posts");
+    const response = await fetch("http://localhost:3000/api/posts");
     if (!response.ok) {
       throw new Error ("Erro com os posts.")
     }
