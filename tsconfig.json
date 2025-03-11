@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    // Basic JavaScript/TypeScript Settings
+    "lib": ["dom", "dom.iterable", "esnext"], // Correct - specifies which built-in libraries to include.
+    "allowJs": true,        // Correct - allows JavaScript files to be compiled (good for mixed JS/TS projects).
+    "skipLibCheck": true,   // Correct - speeds up compilation by skipping type checking of declaration files.
+    "strict": false,        // Consider setting this to 'true' for better type safety.
+    "forceConsistentCasingInFileNames": true, // Correct - enforces consistent casing for file names (prevents issues on case-sensitive file systems).
+    "noEmit": true,        // Correct - Next.js handles code output; this prevents TypeScript from doing it twice.
+    "incremental": true,   // Correct - enables incremental compilation (faster rebuilds).
+    "esModuleInterop": true,  // Correct - improves compatibility with CommonJS modules (important for many libraries).
+    "module": "esnext",      // Correct - use modern ES modules (Next.js expects this).
+    "moduleResolution": "node", // Correct - use Node.js-style module resolution.
+    "resolveJsonModule": true, // Correct - allows importing JSON files directly.
+    "isolatedModules": true, // Correct - ensures that each file can be compiled independently (important for performance).
+    "jsx": "preserve",     // Correct for Next.js with the App Router.  It tells TypeScript to leave JSX as-is, letting Next.js handle the transformation.
+    "plugins": [{ "name": "next" }], // Correct - integrates Next.js's specific TypeScript features.
+    "target": "ES2017",   // Good choice, widely supported.  Could also use "esnext" if you want the very latest, but might need to adjust your browserslist.
+
+    // Path Aliases - The crucial part for `@/*` imports.
+    "baseUrl": ".",           // Correct - sets the base directory for non-relative imports.
+    "paths": {
+      "@/*": ["./*"]       // Correct - this makes @/ point to the project root (where tsconfig.json is).
+    },
+
+    // Additional Type Checking (Optional, but Recommended)
+    "strictNullChecks": true, // Highly recommended - enables strict null checks (prevents common errors).  Often goes hand-in-hand with "strict": true.
+    "noImplicitAny": true,  // Recommended - prevents accidentally using `any` type.
+    "noImplicitThis": true, // Recommended - prevents using `this` with an unclear type.
+    "alwaysStrict": true    // Recommended - ensures strict mode is enabled in all files.
+  },
+  "include": [
+    "next-env.d.ts",   // Correct - includes Next.js type definitions.
+    "**/*.ts",          // Correct - includes all .ts files in the project.
+    "**/*.tsx",         // Correct - includes all .tsx files in the project.
+    ".next/types/**/*.ts", // Correct - includes generated type definitions.
+    "app/middleware.ts" // Correct - specifically include the middleware file
+  ],
+  "exclude": ["node_modules"] // Correct - excludes the node_modules directory from compilation.
+}
