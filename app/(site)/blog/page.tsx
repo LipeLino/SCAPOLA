@@ -2,7 +2,7 @@ import BlogData from "@/components/Blog/blogData";
 import BlogItem from "@/components/Blog/BlogItem";
 import SectionHeader from "@/components/Common/SectionHeader";
 import { Metadata } from "next";
-import { usePathname } from "next/navigation";
+//import { usePathname } from "next/navigation";
 
 // export const metadata: Metadata = {
 //   title: "Blog - Scapola Comunica",
