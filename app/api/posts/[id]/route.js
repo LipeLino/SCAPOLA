@@ -13,6 +13,7 @@ async function getConnection() {
 export async function GET(req, {params}) {
     const { id } = await params;
     const conexao = await getConnection();
+    const placeholderImg = "https://placehold.co/1280x720?text=Sem+Imagem";
 
     if (!id) {
         return NextResponse.json({message: "ID vazia."}, {status: 400});
@@ -41,8 +42,8 @@ export async function GET(req, {params}) {
             title: rows[0].titulo,
             metadata: rows[0].corpo_texto,
             body: rows[0].corpo_texto,
-            mainImage: rows[0].img1,
-            optionalImage: rows[0].img2,
+            mainImage: rows[0].img1 || placeholderImg,
+            // optionalImage: rows[0].img2,
             publishedAt: rows[0].data_pub,
             category: rows[0].categoria_nome,
             author: rows[0].autor_nome,

@@ -14,34 +14,15 @@ async function pegaPost(): Promise<Blog[]> {
 }
 
 const BlogData = await pegaPost();
-
-/*const BlogData: Blog[] = [
-  {
-    _id: 2,
-    mainImage: "/images/blog/blog-05.png",
-    title: "Cliente Scapola Comunica é destaque na maior emissora de Minas Gerais!",
-    metadata:
-      "Dr. Matheus Nister é urooncologista e foi destaque como fonte médica no site da Grupo Itatiaia, editoria de Saúde, falando sobre um importante tema: como as cirurgias robóticas auxiliam no tratamento de doenças da próstata,",
-  },
-  {
-    _id: 2,
-    mainImage: "/images/blog/blog-06.png",
-    title: "GOLAÇO! Nosso parceiro Rede Unishop, da Start Química, estampando uma das melhores, senão a melhor, página/coluna jornalística de negócios e do mundo empresarial mineiro.",
-    metadata:
-      "Agradecemos sempre pelo prestígio da super Helenice Laguardia, que assina a Minas S/A, em O Tempo, a maior audiência do estado em grande imprensa.",
-  },
-];
-
-*/
 export default BlogData;
 
-export async function getStaticProps() {
-  const posts = await pegaPost(); // Busca os posts da API
+// export async function getStaticProps() {
+//   const posts = await pegaPost(); // Busca os posts da API
 
-  return {
-    props: {
-      posts, // Passa os posts como props para a página
-    },
-    revalidate: 120, // Revalida a página a cada 60 segundos
-  };
-}
+//   return {
+//     props: {
+//       posts, // Passa os posts como props para a página
+//     },
+//     revalidate: 120, // Revalida a página a cada 60 segundos
+//   };
+// }

@@ -6,12 +6,13 @@ import About from "@/components/About";
 import FeaturesTab from "@/components/FeaturesTab";
 import Contact from "@/components/Contact";
 import FunFact from "@/components/FunFact";
+import Footer from "@/components/Footer";
 import Integration from "@/components/Integration";
 import CTA from "@/components/CTA";
 import FAQ from "@/components/FAQ";
 import Pricing from "@/components/Pricing";
 import Blog from "@/components/Blog";
-import Testimonial from "@/components/Testimonial";
+//import Testimonial from "@/components/Testimonial";
 import ThemeContainer from "@/components/ThemeContainer";
 
 import { ToastContainer } from "react-toastify";

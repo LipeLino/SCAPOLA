@@ -34,7 +34,7 @@ const pathname = usePathname();
           <Header />
           <ToasterContext />
           {children}
-          <Footer />
+          {/* <Footer /> */}
           <ScrollToTop />
         </ThemeProvider>
       </body>

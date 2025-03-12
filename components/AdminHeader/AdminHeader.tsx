@@ -2,6 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function AdminHeader() {
   const router = useRouter();
@@ -37,8 +38,11 @@ export default function AdminHeader() {
   return (
     <header className="flex items-center justify-between p-4 bg-black">
       <div className="flex justify-center">
-        <img src="/favicon.ico" alt="Logo" className="h-16 mx-auto" />
+        <Link href="/">
+          <img src="/favicon.ico" alt="Logo" className="h-16 mx-auto" />
+        </Link>
       </div>
+      
       <div>
         <button 
           onClick={handleLogout}
@@ -51,4 +55,3 @@ export default function AdminHeader() {
     </header>
   );
 }
-

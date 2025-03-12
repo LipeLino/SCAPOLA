@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const AnimatedText = () => {
-  const texts = ["Sua marca", "Seu negócio", "Sua carreira", "Seu crescimento"];
+  const texts = ["sua marca", "seu negócio", "sua carreira", "seu crescimento"];
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ const AnimatedText = () => {
   }, [texts.length]);
 
   return (
-    <div className="w-[300px] flex align-center">
+    <div className="flex align-center">
       <AnimatePresence mode="wait">
         <motion.span
           key={currentIndex}

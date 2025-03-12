@@ -39,50 +39,37 @@ const Signin = () => {
 
   return (
     <>
-      {/* <!-- ===== SignIn Form Start ===== --> */}
-      <section className="pb-12.5 pt-32.5 lg:pb-25 lg:pt-45 xl:pb-30 xl:pt-50">
-        <div className="relative z-1 mx-auto max-w-c-1016 px-7.5 pb-7.5 pt-10 lg:px-15 lg:pt-15 xl:px-20 xl:pt-20">
-          <div className="absolute left-0 top-0 -z-1 h-2/3 w-full rounded-lg bg-gradient-to-t from-transparent to-[#dee7ff47] dark:bg-gradient-to-t dark:to-[#252A42]"></div>
-          <div className="absolute bottom-17.5 left-0 -z-1 h-1/3 w-full">
-            <Image
-              src="/images/shape/shape-dotted-light.svg"
-              alt="Dotted"
-              className="dark:hidden"
-              fill
-            />
-            <Image
-              src="/images/shape/shape-dotted-dark.svg"
-              alt="Dotted"
-              className="hidden dark:block"
-              fill
-            />
-          </div>
-
-          <div className="animate_top rounded-lg bg-white px-7.5 pt-7.5 shadow-solid-8 dark:border dark:border-strokedark dark:bg-black xl:px-15 xl:pt-15">
-            <h2 className="mb-12 text-center text-3xl font-semibold text-black dark:text-white xl:text-sectiontitle2">
-              Login
+      <section className="pt-32.5 lg:pt-45 xl:pt-50">
+      <div className="relative z-1 w-full px-5 pb-15 bg-slate-50 dark:bg-black pt-15">
+          {/* <div className="absolute left-0 top-0 -z-1 h-2/3 w-full rounded-lg bg-gradient-to-t from-transparent to-[#dee7ff47] dark:bg-gradient-to-t dark:to-[#252A42]"></div> */}
+          <div className="rounded-lg bg-white border shadow-lg dark:border dark:border-slate-500 dark:drop-shadow-[0_4px_10px_rgba(255,255,255,0.5)] dark:bg-black px-16 pt-16 max-w-3xl mx-auto">
+            <h2 className="text-center text-3xl font-semibold text-black dark:text-white xl:text-sectiontitle2">
+              Entrar no Painel
             </h2>
+
+            <p className="text-center text-black dark:text-white pt-6">Insira suas credenciais para acessar o controle de postagens e logomarcas.</p>
+            <hr className="my-8 h-0.5 bg-[#cccccc] dark:bg-white/10"/>
 
             <form onSubmit={handleLogin}>
             <div className="flex flex-col gap-7.5">
                 <input
                   type="text"
-                  placeholder="Email"
+                  placeholder="Insira seu login aqui"
                   name="username"
                   value={data.username}
                   onChange={(e) => setData({ ...data, username: e.target.value })}
-                  className="w-full border-b border-stroke !bg-white pb-3.5 focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:!bg-black dark:focus:border-manatee dark:focus:placeholder:text-white"
+                  className="w-full border rounded-lg pt-4 pl-2 border-b border-stroke !bg-white pb-3.5 focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:!bg-black dark:focus:border-manatee dark:focus:placeholder:text-white"
                 />
 
                 <input
                   type="password"
-                  placeholder="Senha"
+                  placeholder="Insira sua senha aqui"
                   name="password"
                   value={data.password}
                   onChange={(e) =>
                     setData({ ...data, password: e.target.value })
                   }
-                  className="w-full border-b border-stroke !bg-white focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:!bg-black dark:focus:border-manatee dark:focus:placeholder:text-white"
+                  className="w-full border rounded-lg pt-4 pl-2 border-b border-stroke !bg-white pb-3.5 focus:border-waterloo focus:placeholder:text-black focus-visible:outline-none dark:border-strokedark dark:!bg-black dark:focus:border-manatee dark:focus:placeholder:text-white"
                 />
               </div>
 
@@ -92,13 +79,15 @@ const Signin = () => {
                   className="inline-flex items-center gap-2.5 rounded-full bg-black mb-4 px-6 py-3 font-light text-white duration-300 ease-in-out hover:bg-blackho dark:bg-btndark dark:hover:bg-blackho"
                 >
                   Entrar
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor">
+                <path d="M10.4767 6.16701L6.00668 1.69701L7.18501 0.518677L13.6667 7.00034L7.18501 13.482L6.00668 12.3037L10.4767 7.83368H0.333344V6.16701H10.4767Z" />
+              </svg>
                 </button>
               </div>
             </form>
           </div>
         </div>
       </section>
-      {/* <!-- ===== SignIn Form End ===== --> */}
     </>
   );
 };

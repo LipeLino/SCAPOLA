@@ -12,6 +12,7 @@ async function getConnection() {
 
 export async function GET() {
     const conexao = await getConnection();
+    const placeholderImg = "https://placehold.co/640x480?text=Sem+Imagem";
 
     try {
         const [rows] = await conexao.execute(`
@@ -32,7 +33,7 @@ export async function GET() {
             slug: 'empty',
             metadata: post.corpo_texto,
             body: post.corpo_texto,
-            mainImage: post.img1,
+            mainImage: post.img1 || placeholderImg,
             author: post.autor_nome,
             category: post.categoria_nome,
             publishedAt: post.data_pub,

@@ -48,16 +48,14 @@ const About = () => {
               viewport={{ once: true }}
               className="animate_right"
             >
-              <h2 className="relative mb-6 text-4xl font-medium text-black dark:text-white">
-                Soluções inteligentes para <br />
+              <h2 className="relative mb-6 text-4xl  text-center font-medium text-black dark:text-white">
+                Soluções inteligentes para: <br />
                 <span className="text-center inline-block mt-1">
                     <AnimatedText />
                 </span>
               </h2>
-              <p>
-                Visibilidade Orgânica e Conexões Estratégicas sob medida, <br />
-                Consultoria e Assessoria de Ponta a Ponta.
-              </p>
+              <p>Visibilidade Orgânica e Conexões Estratégicas sob medida,</p>
+              <p>Consultoria e Assessoria de Ponta a Ponta.</p>
 
               {["Sua demanda", "Solução artesanal"].map((title, index) => (
                 <div className="mt-7.5 flex items-center gap-5" key={index}>

@@ -31,9 +31,8 @@ const AdminDashboard = () => {
   return (
     <div className="min-h-screen bg-slate-200">
       <AdminHeader/>
-
       <main className="p-6">
-        <div className="flex flex-col items-center gap-4 bg-white p-6 border border-gray-300 rounded-lg shadow-md w-1/4 mx-auto">
+      <div className="flex flex-col items-center gap-4 bg-white p-6 border border-gray-300 rounded-lg shadow-md sm:w-3/4 md:w-2/4 lg:w-2/4 xl:w-1/4 mx-auto">
           <h1 className="text-3xl font-bold text-center text-black">
             Painel de Controle
           </h1>
@@ -64,7 +63,7 @@ const AdminDashboard = () => {
           </Link>
         </div>
 
-        <div className="flex flex-col mt-2 items-center gap-4 bg-white p-6 border border-gray-300 rounded-lg shadow-md w-1/4 mx-auto">
+        <div className="flex flex-col mt-2 items-center gap-4 bg-white p-6 border border-gray-300 rounded-lg shadow-md sm:w-3/4 md:w-2/4 lg:w-2/4 xl:w-1/4 mx-auto">
           <h1 className="text-3xl font-bold text-center text-black">Dashboard</h1>
           <p className="text-gray-500">
             Postagens:{" "}

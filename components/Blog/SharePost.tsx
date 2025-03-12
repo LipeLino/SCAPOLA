@@ -101,24 +101,6 @@ const SharePost = () => {
             </a>
           </li>
         </ul>
-
-        <ul className="flex items-center gap-4">
-          <li>
-            <p className="text-black dark:text-white">Tags:</p>
-          </li>
-          <li>
-            <a
-              href="#"
-              className="pr-2 duration-300 ease-in-out hover:text-primary"
-            >
-              #scapola
-            </a>
-
-            <a href="#" className="duration-300 ease-in-out hover:text-primary">
-              #turismo.com
-            </a>
-          </li>
-        </ul>
       </div>
     </>
   );
