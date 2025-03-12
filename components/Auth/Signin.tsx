@@ -40,9 +40,9 @@ const Signin = () => {
   return (
     <>
       <section className="pt-32.5 lg:pt-45 xl:pt-50">
-      <div className="relative z-1 w-full px-5 pb-15 bg-slate-50 dark:bg-black pt-15">
+      <div className="relative z-1 w-full px-5 pb-15 backdrop-blur-xs dark:bg-transparent dark:backdrop-blur-xs pt-15">
           {/* <div className="absolute left-0 top-0 -z-1 h-2/3 w-full rounded-lg bg-gradient-to-t from-transparent to-[#dee7ff47] dark:bg-gradient-to-t dark:to-[#252A42]"></div> */}
-          <div className="rounded-lg bg-white border shadow-lg dark:border dark:border-slate-500 dark:drop-shadow-[0_4px_10px_rgba(255,255,255,0.5)] dark:bg-black px-16 pt-16 max-w-3xl mx-auto">
+          <div className="rounded-lg bg-white dark:bg-black border shadow-lg dark:border dark:border-slate-600 dark:drop-shadow-[0_4px_10px_rgba(255,255,255,0.5)] px-16 pt-16 max-w-3xl mx-auto">
             <h2 className="text-center text-3xl font-semibold text-black dark:text-white xl:text-sectiontitle2">
               Entrar no Painel
             </h2>
