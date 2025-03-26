@@ -1,89 +1,140 @@
-# Solid - Free Next.js Web Template and Starter Kit for SaaS
+# Scapola CMS - Sistema de Gerenciamento de Conteúdo
 
-Solid is a free Next.js template specifically crafted for startups, SaaS, and software websites. It provides an extensive array of necessary sections, elements, and pages required to build a fully-equipped website for any SaaS, software, or startup site. Comes with all cutting edge React and Next.js features - **Built with Next.js 13, React 18 and TypeScript.**
+Este projeto é um sistema de gerenciamento de conteúdo (CMS) personalizado para o site da Scapola Comunica, uma agência de PR e comunicação. O sistema permite gerenciar marcas parceiras e publicações de blog através de um painel administrativo seguro.
 
-This Next.js template's homepage comes with an awesome hero area, logos of associated brands, a features section, an about section, another features section with tabs, counters, and star ratings, integration options, clear call-to-actions, an FAQ section with accordions, a testimonials section, pricing tables, a contact page, a blog, and a distinctive footer.
+## Sobre o Projeto
 
-**Solid Next.js template packed with all necessary external pages** - such as login, registration, blog grids, and single blog pages, among others. This broad collection of pages provides all the necessary tools to create a feature-packed, comprehensive, and visually appealing website or landing page for software, a web application, or SaaS.
+Desenvolvido pelo time de TI da **Avance - Consultoria Júnior** (Empresa Júnior Multidisciplinar da UEMG Frutal), o Scapola CMS foi criado especificamente para atender às necessidades de gestão de conteúdo da Scapola Comunica, possibilitando que a equipe atualize o site de forma intuitiva e eficiente.
 
-### [🔥 Get Solid Pro - Next.js SaaS Boilerplate and Starter Kit](https://nextjstemplates.com/templates/solid)
+## Tecnologias
 
-![Startup Pro](https://uideck.com/wp-content/uploads/edd/2023/07/solid-saas.png)
+- **Next.js**: Framework React para renderização do lado do servidor e criação de APIs
+- **TypeScript**: Tipagem estática para desenvolvimento mais seguro
+- **MySQL**: Banco de dados relacional
+- **NextAuth.js**: Sistema completo de autenticação e autorização
+- **TailwindCSS**: Framework CSS para design responsivo
+- **React Quill**: Editor rich text para criação de conteúdo
+- **Formidable/Multer**: Manipulação de uploads de arquivos
+- **Basic-FTP**: Transferência de arquivos para servidor remoto
 
-### [🚀 Solid PRO Live Demo](https://solid.nextjstemplates.com/)
+## Funcionalidades
 
-### [🚀 Solid FREE Live Demo](https://solid-free.nextjstemplates.com/)
+O sistema inclui as seguintes funcionalidades:
 
-### TailAdmin React PRO vs TailAdmin React FREE Comparison 📊
+### Autenticação e Autorização
+- Sistema seguro de login de administrador
+- Proteção de rotas administrativas
+- Gerenciamento de sessões com tokens JWT
 
-#### [Solid PRO](https://solid.nextjstemplates.com/)
-- SaaS Boilerplate + Starter Kit with Essential Integrations and Functionalities
-- Essential Integrations: Auth, DB, Stripe, MDX and More ...
-- Fully Functional, Ready to Use Sanity Blog Support
-- Premium Email Support
-- Functional External Pages
-- Free Lifetime Future Updates
-___
-#### [Solid FREE](https://solid-free.nextjstemplates.com/)
-- Only UI - Coded for Next.js
-- No Integrations
-- No Functional Blogging System
-- External Pages without Functions/Integrations
-- Community Support
-- Free Lifetime Future Updates
-___
+### Gerenciamento de Conteúdo
+- **Marcas**: Adicionar, editar e excluir marcas parceiras, incluindo upload de logos
+- **Blog**: Criar, editar e excluir publicações de blog com editor rich text
+- **Categorias**: Organizar posts por categorias personalizáveis
+- **Upload de imagens**: Gestão de imagens para posts e marcas
 
-### [📦 Download](https://nextjstemplates.com/templates/solid)
+### API RESTful
+- Endpoints para gerenciar todos os recursos
+- Autenticação via NextAuth
+- Documentação completa disponível em [API.md](./API.md)
 
-### [🔥 Get Pro](https://nextjstemplates.com/templates/solid)
+## Instalação
 
-### [🔌 Documentation](https://nextjstemplates.com/docs)
-
-### ⚡ Deploy Now
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FNextJSTemplates%2Fsolid-nextjs)
-
-[![Deploy with Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/NextJSTemplates/solid-nextjs)
-
-
-## Installation
-
-Here are the steps you need to follow to install the dependencies.
-
-1.Download and extract the template from **Next.js Templates.**
-
-2.**cd** into the template directory then run this command to install all the dependencies
-    
+1. Clone o repositório:
 ```bash
-    npm install
+git clone https://github.com/scapola/scapola-cms.git
+cd scapola-cms
 ```
-    
-or
-    
+
+2. Instale as dependências:
 ```bash
-    yarn install
- ```
+npm install
+# ou
+yarn install
+```
 
+3. Configure as variáveis de ambiente:
+Crie um arquivo `.env.local` na raiz do projeto com as seguintes variáveis:
+```
+# Autenticação
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=seu-segredo-jwt-aleatorio
+SETUP_KEY=chave-de-configuracao-inicial
 
-You can start the project on the local server
-    
+# Banco de dados
+DB_HOST=localhost
+DB_USER=usuario
+DB_PASS=senha
+DB_NAME=scapola
+
+# Email (opcional, para notificações)
+EMAIL_HOST=smtp.exemplo.com
+EMAIL_PORT=587
+EMAIL_USER=usuario@exemplo.com
+EMAIL_PASS=senha-do-email
+EMAIL_TO_PRIMARY=destino@exemplo.com
+```
+
+4. Inicie o servidor de desenvolvimento:
 ```bash
-    npm run dev
- ```
+npm run dev
+# ou
+yarn dev
+```
 
-It’ll start the template on [localhost:3000](http://localhost:3000). 
+5. Configure a conta de administrador visitando:
+```
+http://localhost:3000/admin/setup
+```
+Use a SETUP_KEY definida nas variáveis de ambiente para criar o administrador.
 
-The documentation includes all the guides you need for the integrations. 
+## Estrutura do Projeto
 
+- `/app`: Rotas e páginas da aplicação (Next.js App Router)
+  - `/api`: Endpoints da API REST
+  - `/(site)`: Páginas públicas do site
+  - `/admin`: Páginas do painel administrativo
+- `/components`: Componentes React reutilizáveis
+- `/lib`: Utilitários e funções auxiliares
+  - `db.ts`: Conexão com banco de dados
+- `/types`: Definições de tipos TypeScript
+- `/utils`: Funções utilitárias
+- `/public`: Arquivos estáticos e uploads
 
-### Deploying on PaaS
+## Implantação
 
-If you are using a GitHub repo then you can go with free-of-cost and easy-to-use options like [Vercel](https://vercel.com/), or [Netlify](https://netlify.com/) they offer decent-free tiers for Next.js hosting.
+Para implantar em produção:
 
-### 📄 License
-Solid Free is 100% free and open-source, feel free to use with your personal and commercial projects.
+1. Construa a aplicação:
+```bash
+npm run build
+# ou
+yarn build
+```
 
-### 💜 Support
-If you like the template, please star this repository to inspire the team to create more stuff like this and reach more users like you!
+2. Inicie o servidor de produção:
+```bash
+npm start
+# ou
+yarn start
+```
 
-### ✨ Browse and Download - Best Free [Next.js Templates](https://nextjstemplates.com/templates)
+## Integração FTP
+
+O sistema utiliza o protocolo FTP para upload de imagens. As imagens são armazenadas em um servidor FTP configurado nas variáveis de ambiente. Os uploads são realizados através da biblioteca `basic-ftp`.
+
+## Segurança
+
+- As senhas são armazenadas com hash usando bcrypt
+- A autenticação é gerenciada por NextAuth.js com tokens JWT
+- Todas as rotas da API verificam a sessão do usuário antes de permitir acesso
+
+## Equipe de Desenvolvimento
+
+- Mateus Lino (@LipeLino)
+- Myke Matos (@shishiv)
+- Pedro Henrique (@Pedro)
+- Rodrigo Salgado (@Rodrigo)
+
+## Suporte
+
+Para suporte, entre em contato com a equipe da Avance Consultoria Júnior ou abra uma issue neste repositório.
