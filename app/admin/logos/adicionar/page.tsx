@@ -73,16 +73,17 @@ export default function PostForm() {
                 Dashboard
               </div>
             </Link>
-            <Link href="/admin/nova-logo">
-              <div className="p-4 hover:bg-gray-700 cursor-pointer">
+            
+            <div className="bg-blue-600 text-white p-4 font-bold">
                 Gerenciar Marcas
               </div>
-            </Link>
-            <Link href="/admin/novo-post">
+            
+            <Link href="/admin/posts">
               <div className="p-4 hover:bg-gray-700 cursor-pointer">
                 Gerenciar Blog
               </div>
             </Link>
+
             <Link href="/admin">
               <div className="p-4 hover:bg-gray-700 cursor-pointer">
                 Gerenciar Categorias
@@ -90,10 +91,7 @@ export default function PostForm() {
             </Link>
         </div>
         
-        {/* Conteúdo principal */}
-        <div className="flex-grow p-8 bg-white overflow-y-auto">
-          
-          {/* Cards de estatísticas */}
+        <div className="flex-grow p-8 bg-slate-200 overflow-y-auto">
           <div className="flex flex-col items-center justify-center w-full flex-1 mt-8">
                 <form onSubmit={handleSubmit} id="postForm" className="w-full max-w-lg bg-white p-6 border border-gray-300 rounded-lg shadow-md">
                     <h1 className="text-3xl font-bold text-center mb-6 text-black">Nova Logo</h1>
@@ -111,13 +109,20 @@ export default function PostForm() {
 
                     <div className="mt-3">{mensagem}</div>
                 </form>
-                <div className="mt-4">
-                <Link href="/admin">
-                    <button className="flex items-center bg-gray-800 text-white font-semibold py-2 px-4 rounded-md hover:bg-gray-700 transition duration-200">
-                        <span className="mr-2">⬅</span> Voltar para o Painel
-                    </button>
-                </Link>
-            </div>
+                
+                <div className="mt-4 flex flex-col justify-center items-center">
+                  <Link href="/admin/logos/">
+                      <button className="flex items-center bg-gray-800 mb-4 text-white font-semibold py-2 px-4 rounded-md hover:bg-gray-700">
+                          <span className="mr-2">⬅</span> Voltar para Marcas
+                      </button>
+                  </Link>
+
+                  <Link href="/admin">
+                      <button className="flex items-center bg-gray-800 text-white font-semibold py-2 px-4 rounded-md hover:bg-gray-700">
+                          <span className="mr-2">⬅</span> Voltar para o Dashboard
+                      </button>
+                  </Link>
+              </div>
             </div>
         </div>
       </div>

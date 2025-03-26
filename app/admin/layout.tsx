@@ -1,7 +1,7 @@
 import 'app/globals.css'
 
 export const metadata = {
-  title: 'Painel de Controle',
+  title: 'Painel de Controle - Scapola',
   description: '',
 }
 

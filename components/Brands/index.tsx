@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import SingleBrand from "./SingleBrand";
-import brandData from "./brandData";
+import { pegaBrand } from "./brandData";
+import { Brand } from "@/types/brand";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -34,11 +35,25 @@ const CustomNextArrow: React.FC<ArrowProps> = ({ className, style, onClick }) =>
 );
 
 const Brands = () => {
+  const [brands, setBrands] = useState<Brand[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadBrands = async () => {
+      const data = await pegaBrand();
+      setBrands(data);
+      setLoading(false);
+    };
+    
+    loadBrands();
+  }, []);
+
+
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
@@ -75,6 +90,18 @@ const Brands = () => {
     ]
   };
 
+  if (loading) {
+    return (
+      <section className="border border-x-0 mt-10 border-y-stroke bg-alabaster py-11 dark:border-y-strokedark dark:bg-black">
+        <div className="mx-auto max-w-c-1390 px-4 md:px-8 2xl:px-0">
+          <h2 className="text-3xl font-medium text-center mb-14 dark:text-white">
+            Carregando...
+          </h2>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="border border-x-0 mt-10 border-y-stroke bg-alabaster py-11 dark:border-y-strokedark dark:bg-black">
       <div className="mx-auto max-w-c-1390 px-4 md:px-8 2xl:px-0">
@@ -83,7 +110,7 @@ const Brands = () => {
         </h2>
         <div className="px-4 sm:px-6 lg:px-8">
           <Slider {...settings}>
-            {brandData.map((brand) => (
+            {brands.map((brand) => (
               brand.image && (
                 <SingleBrand 
                   key={brand.id} 

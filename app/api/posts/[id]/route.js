@@ -83,4 +83,33 @@ export async function DELETE(req, {params}) {
     } finally {
       await conexao.end();
     }
-  }  
+  }
+
+  export async function PUT(req, {params}) {
+    const { id } = await params;
+    const conexao = await getConnection();
+
+    if (!id) {
+      return NextResponse.json({ message: "ID não informado." }, { status: 400 });
+    }
+
+    const { titulo, corpo, categoria, autor, url } = await req.json();
+
+    try {
+      const [result] = await conexao.execute(
+        'UPDATE publicacoes SET titulo = ?, autor_id = ?, categoria_id = ?, corpo_texto = ?, img1 = ? WHERE id = ?',
+        [titulo, autor, categoria, corpo, url, id]
+      )
+      
+      if (result.affectedRows === 0) {
+        return NextResponse.json({ message: "Marca não encontrada" }, { status: 404 });
+      }
+  
+      return NextResponse.json({ message: "Marca editada com sucesso!" }, { status: 200 });
+    } catch (err) {
+      console.error(err);
+      return NextResponse.json({ message: "Erro ao excluir a marca." }, { status: 500 });
+    } finally {
+      await conexao.end();
+    }
+  }

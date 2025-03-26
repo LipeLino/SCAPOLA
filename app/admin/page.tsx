@@ -24,57 +24,113 @@ const AdminDashboard = () => {
         console.error("Erro ao conectar com a API:", error);
       }
     };
-
     fetchData();
   }, []);
 
   return (
-    <div className="min-h-screen bg-slate-200">
+    <div className="flex flex-col h-screen">
       <AdminHeader/>
-      <main className="p-6">
-      <div className="flex flex-col items-center gap-4 bg-white p-6 border border-gray-300 rounded-lg shadow-md sm:w-3/4 md:w-2/4 lg:w-2/4 xl:w-1/4 mx-auto">
-          <h1 className="text-3xl font-bold text-center text-black">
-            Painel de Controle
-          </h1>
-          <h3>Controle de Postagens e de Logomarcas</h3>
+      <div className="flex flex-1">
+        {/* Sidebar */}
+        <div className="w-64 bg-gray-800 text-white flex-shrink-0">          
+            
+              <div className="bg-blue-600 text-white p-4 font-bold">
+                Dashboard
+              </div>
+            
+            <Link href="/admin/logos">
+              <div className="p-4 hover:bg-gray-700 cursor-pointer">
+                Gerenciar Marcas
+              </div>
+            </Link>
 
-          <Link href="/admin/novo-post" className="w-full">
-            <button className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-500 rounded">
-              Adicionar Postagem
-            </button>
-          </Link>
-
-          <Link href="/admin/remover-post" className="w-full">
-            <button className="w-full bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-500 rounded">
-              Deletar Postagens
-            </button>
-          </Link>
-
-          <Link href="/admin/nova-logo" className="w-full">
-            <button className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-500 rounded">
-              Adicionar Marca
-            </button>
-          </Link>
-
-          <Link href="/admin/remover-logo" className="w-full">
-            <button className="w-full bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 border border-red-500 rounded">
-              Deletar Marca
-            </button>
-          </Link>
+            <Link href="/admin/posts">
+              <div className="p-4 hover:bg-gray-700 cursor-pointer">
+                Gerenciar Blog
+              </div>
+            </Link>
+            
+            <Link href="/admin">
+              <div className="p-4 hover:bg-gray-700 cursor-pointer">
+                Gerenciar Categorias
+              </div>
+            </Link>
         </div>
+        
+        {/* Conteúdo principal */}
+        <div className="flex-grow p-8 bg-slate-100 overflow-y-auto">
+          <h3 className="text-4xl font-medium font-bold text-black mb-8">Dashboard</h3>
+          
+          {/* Cards de estatísticas */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            {/* Card Marcas */}
+            <div className="bg-slate-300 p-6 rounded-md shadow-md">
+              <h3 className="text-lg text-black font-bold mb-2">Marcas</h3>
+              <p className="text-4xl font-bold text-blue-600 mb-4">{logoCount}</p>
+              <Link href="/admin/logos">
+                <p className="text-blue-500 hover:text-blue-700">Gerenciar marcas</p>
+              </Link>
+            </div>
+            
+            {/* Card Posts do Blog */}
+            <div className="bg-slate-300 p-6 rounded-md shadow-md">
+              <h3 className="text-lg text-black font-bold mb-2">Posts do Blog</h3>
+              <p className="text-4xl font-bold text-blue-600 mb-4">{postCount}</p>
+              <Link href="/admin/posts">
+                <p className="text-blue-500 hover:text-blue-700">Gerenciar posts</p>
+              </Link>
+            </div>
 
-        <div className="flex flex-col mt-2 items-center gap-4 bg-white p-6 border border-gray-300 rounded-lg shadow-md sm:w-3/4 md:w-2/4 lg:w-2/4 xl:w-1/4 mx-auto">
-          <h1 className="text-3xl font-bold text-center text-black">Dashboard</h1>
-          <p className="text-gray-500">
-            Postagens:{" "}
-            <span className="font-semibold text-black dark:text-white">{postCount}</span>
-          </p>
-          <p className="text-gray-500">
-            Marcas:{" "}
-            <span className="font-semibold text-black dark:text-white">{logoCount}</span>
-          </p>
+            <div className="bg-slate-300 p-6 rounded-md shadow-md">
+              <h3 className="text-lg text-black font-bold mb-2">Autores</h3>
+              <p className="text-4xl font-bold text-blue-600 mb-4">100</p>
+              <Link href="/admin">
+                <p className="text-blue-500 hover:text-blue-700">Gerenciar autores</p>
+              </Link>
+            </div>
+            
+            {/* Card Categorias */}
+            <div className="bg-slate-300 p-6 rounded-md shadow-md">
+              <h3 className="text-lg text-black font-bold mb-2">Categorias</h3>
+              <p className="text-4xl font-bold text-blue-600 mb-4">100</p>
+              <Link href="/admin">
+                <p className="text-blue-500 hover:text-blue-700">Gerenciar categorias</p>
+              </Link>
+            </div>
+          </div>
+          
+          {/* Seção Ações Rápidas */}
+          <h3 className="text-xl font-medium text-gray-600 mb-4">Ações Rápidas</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Adicionar Nova Marca */}
+            <div className="bg-gray-300 p-6 rounded-md hover:bg-gray-200 transition">
+              <h4 className="text-lg font-bold text-gray-700 mb-2">Adicionar Nova Marca</h4>
+              <p className="text-gray-600 mb-4">Adicione uma nova marca ao site</p>
+              <Link href="/admin/logos/adicionar">
+                <button className="text-blue-600 hover:text-blue-800">Adicionar</button>
+              </Link>
+            </div>
+            
+            {/* Criar Novo Post */}
+            <div className="bg-gray-300 p-6 rounded-md hover:bg-gray-200 transition">
+              <h4 className="text-lg font-bold text-gray-700 mb-2">Criar Novo Post</h4>
+              <p className="text-gray-600 mb-4">Publique um novo artigo no blog</p>
+              <Link href="/admin/posts/adicionar">
+                <button className="text-blue-600 hover:text-blue-800">Criar</button>
+              </Link>
+            </div>
+            
+            {/* Visualizar Site */}
+            <div className="bg-gray-300 p-6 rounded-md hover:bg-gray-200 transition">
+              <h4 className="text-lg font-bold text-gray-700 mb-2">Visualizar Site</h4>
+              <p className="text-gray-600 mb-4">Veja o site como um visitante</p>
+              <Link href="/" target="_blank">
+                <button className="text-blue-600 hover:text-blue-800">Visualizar</button>
+              </Link>
+            </div>
+          </div>
         </div>
-      </main>
+      </div>
     </div>
   );
 };
