@@ -1,11 +1,27 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import AdminHeader from "@/components/AdminHeader/AdminHeader";
 
 export default function PostForm() {
     const [mensagem, setMensagem] = useState<React.ReactNode | null>(null);
+    const [categorias, setCategorias] = useState<{ id: number; nome: string; cor: string }[]>([]);
+
+    useEffect(() => {
+        async function fetchCategorias() {
+            try {
+                const response = await fetch("/api/category");
+                if (!response.ok) throw new Error("Erro ao buscar categorias");
+
+                const data = await response.json();
+                setCategorias(data);
+            } catch (error) {
+                console.error("Erro ao carregar categorias:", error);
+            }
+        }
+        fetchCategorias();
+    }, []);
 
     async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
@@ -71,30 +87,32 @@ export default function PostForm() {
     }
 
     return (
-    <div className="flex flex-col h-screen">
+        <div className="flex flex-col h-screen">
         <AdminHeader/>
-            <div className="flex flex-1">
-                <div className="w-64 bg-gray-800 text-white flex-shrink-0">  
-                    <Link href="/admin">
-                        <div className="p-4 font-bold hover:bg-blue-700 cursor-pointer">
+          <div className="flex flex-col md:flex-row h-full">
+            {/* Sidebar */}
+            <div className="w-full md:w-60 bg-gray-800 text-white flex-shrink-0 md:text-start p-4 text-center">
+  
+                  <Link href="/admin">
+                      <div className="p-4 hover:bg-blue-700 cursor-pointer hover:rounded">
                         Dashboard
-                        </div>
+                      </div>
                     </Link>
-
+                
                     <Link href="/admin/logos">
-                        <div className="p-4 hover:bg-gray-700 cursor-pointer">
+                      <div className="p-4 hover:bg-gray-700 cursor-pointer hover:rounded">
                         Gerenciar Marcas
-                        </div>
+                      </div>
                     </Link>
-
-                        <div className="bg-blue-600 text-white p-4 font-bold">
+                    
+                      <div className="bg-blue-600 text-white p-4 font-bold rounded">
                         Gerenciar Blog
-                        </div>
-
-                    <Link href="/admin">
-                        <div className="p-4 hover:bg-gray-700 cursor-pointer">
+                      </div>
+                    
+                    <Link href="/admin/categorias">
+                      <div className="p-4 hover:bg-gray-700 cursor-pointer hover:rounded">
                         Gerenciar Categorias
-                        </div>
+                      </div>
                     </Link>
                 </div>
 
@@ -118,11 +136,15 @@ export default function PostForm() {
 
                         <label className="font-semibold block">Categoria:</label>
                         <select name="categoria" className="w-full border border-gray-300 rounded-md p-2 mb-3">
-                        <option value="1">Emplacadas</option>
-                        <option value="2">Institucional</option>
-                        <option value="3">Clientes</option>
-                        <option value="4">Destaques</option>
-                        <option value="5">Outros</option>
+                        {categorias.length > 0 ? (
+                            categorias.map((categoria) => (
+                                <option key={categoria.id} value={categoria.id}>
+                                    {categoria.nome}
+                                </option>
+                            ))
+                        ) : (
+                            <option>Carregando categorias...</option>
+                        )}
                         </select>
 
                         <label className="font-semibold block">Insira uma imagem para o post:</label>
@@ -130,7 +152,7 @@ export default function PostForm() {
 
                         <input type="submit" value="Enviar" className="w-full bg-blue-600 text-white font-semibold py-2 rounded-md hover:bg-blue-700 transition cursor-pointer mt-3" />
 
-                        <div className="mt-3">
+                        <div className="mt-0">
                             {mensagem}
                         </div>
 

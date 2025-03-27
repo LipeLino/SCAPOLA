@@ -16,12 +16,16 @@ export async function GET() {
     try {
         const [posts] = await conexao.execute("SELECT COUNT(*) as total FROM publicacoes");
         const [logos] = await conexao.execute("SELECT COUNT(*) as total FROM brands");
+        const [cats] = await conexao.execute("SELECT COUNT(*) as total FROM categorias");
+        const [aut] = await conexao.execute("SELECT COUNT(*) as total FROM autores");
 
         await conexao.end();
 
         return NextResponse.json({
         postCount: posts[0].total,
         logoCount: logos[0].total,
+        catCount: cats[0].total,
+        autCount: aut[0].total,
         });
     } catch (error) {
         return NextResponse.json({ error: "Erro ao buscar os dados" }, { status: 500 });

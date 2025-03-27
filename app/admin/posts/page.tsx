@@ -87,37 +87,39 @@ const AdminPostsPage = () => {
   return (   
     <div className="flex flex-col h-screen">
       <AdminHeader/>
-        <div className="flex flex-1">
-          <div className="w-64 bg-gray-800 text-white flex-shrink-0">  
+        <div className="flex flex-col md:flex-row h-full">
+          {/* Sidebar */}
+          <div className="w-full md:w-60 bg-gray-800 text-white flex-shrink-0 md:text-start p-4 text-center">
+
                 <Link href="/admin">
-                    <div className="p-4 font-bold hover:bg-blue-700 cursor-pointer">
+                    <div className="p-4 hover:bg-blue-700 cursor-pointer hover:rounded">
                       Dashboard
                     </div>
                   </Link>
               
                   <Link href="/admin/logos">
-                    <div className="p-4 hover:bg-gray-700 cursor-pointer">
+                    <div className="p-4 hover:bg-gray-700 cursor-pointer hover:rounded">
                       Gerenciar Marcas
                     </div>
                   </Link>
                   
-                    <div className="bg-blue-600 text-white p-4 font-bold">
+                    <div className="bg-blue-600 text-white p-4 font-bold rounded">
                       Gerenciar Blog
                     </div>
                   
-                  <Link href="/admin">
-                    <div className="p-4 hover:bg-gray-700 cursor-pointer">
+                  <Link href="/admin/categorias">
+                    <div className="p-4 hover:bg-gray-700 cursor-pointer hover:rounded">
                       Gerenciar Categorias
                     </div>
                   </Link>
               </div>
 
       <div className="flex-grow p-8 bg-slate-200 overflow-y-auto">
-          <div className="flex justify-between items-center mb-6">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
             <h3 className="text-4xl font-medium font-bold text-black">Gerenciar Blog</h3>
             <Link href="/admin/posts/adicionar">
               <button className="bg-green-600 text-white py-2 px-6 rounded hover:bg-green-800">
-              <p>+ Adicionar Nova Postagem</p>
+              <p>+ Nova Postagem</p>
               </button>
             </Link>
           </div>
@@ -145,7 +147,7 @@ const AdminPostsPage = () => {
                   <p className="text-sm mb-1 mt-2 text-gray-500">Publicado em: <span className="font-semibold text-black dark:text-white">{post.publishedAt}</span></p>
                   <p className="text-sm text-gray-500">Autor: <span className="font-semibold text-black dark:text-white">{post.author}</span></p>
                   <div className="mt-1 mb-2">
-                    <span className="bg-blue-500 py-1 px-3 rounded font-medium text-xs text-white inline-block">
+                    <span className="py-1 px-3 rounded font-medium text-xs text-white inline-block" style={{ backgroundColor: post.color}}>
                       {post.category}
                     </span>
                   </div>         

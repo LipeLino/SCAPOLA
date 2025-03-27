@@ -18,4 +18,5 @@ export type Blog = {
   tags?: string[];
   publishedAt?: string;
   category?: string;
+  color: string;
 };

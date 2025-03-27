@@ -132,8 +132,8 @@ O sistema utiliza o protocolo FTP para upload de imagens. As imagens são armaze
 
 - Mateus Lino (@LipeLino)
 - Myke Matos (@shishiv)
-- Pedro Henrique (@Pedro)
-- Rodrigo Salgado (@Rodrigo)
+- Pedro Henrique (@PedroHFMG)
+- Rodrigo Salgado (@RodrigoRSCezar)
 
 ## Suporte
 

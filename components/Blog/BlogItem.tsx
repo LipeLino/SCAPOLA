@@ -6,7 +6,7 @@ import Link from "next/link";
 import SectionHeader from "../Common/SectionHeader";
 
 const BlogItem = ({ blog }: { blog: Blog }) => {
-  const { mainImage, title, metadata, category, author, publishedAt } = blog;
+  const { mainImage, title, metadata, category, author, color, publishedAt } = blog;
 
   return (  
     <>
@@ -44,7 +44,7 @@ const BlogItem = ({ blog }: { blog: Blog }) => {
           <p className="line-clamp-3 italic text-lg">{metadata}</p>
           <p className="text-sm mb-1 mt-5 text-gray-500">Publicado em: <span className="font-semibold text-black dark:text-white">{publishedAt}</span></p>
           <p className="text-sm text-gray-500 ">Autor: <span className="font-semibold text-black dark:text-white">{author}</span></p>
-          <span className="bg-blue-500 rounded-full font-semibold text-xs px-1.5 text-white dark:text-white">{category}</span>
+          <span className="bg-blue-500 rounded font-semibold text-xs px-1.5 text-white dark:text-white" style={{ backgroundColor: color }}>{category}</span>
         </div>
       </motion.div>
     </>

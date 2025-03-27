@@ -80,7 +80,7 @@ const postId = async (id: string) => {
                     <span className="text-black dark:text-white">
                       Categoria:&nbsp;
                     </span>
-                     {post.category}
+                    <span className="bg-blue-500 rounded font-semibold text-xs px-1.5 text-white dark:text-white" style={{ backgroundColor: post.color }}>{post.category}</span>
                   </li>
                 </ul>
 

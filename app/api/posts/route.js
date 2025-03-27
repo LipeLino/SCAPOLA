@@ -18,6 +18,7 @@ export async function GET() {
         const [rows] = await conexao.execute(`
             SELECT publicacoes.id, titulo, autor_id, data_pub, categoria_id, slug, corpo_texto, img1,
             categorias.nome AS categoria_nome,
+            categorias.cor AS categoria_cor,
             autores.nome AS autor_nome
             FROM publicacoes
             INNER JOIN categorias
@@ -37,6 +38,7 @@ export async function GET() {
             author: post.autor_nome,
             category: post.categoria_nome,
             publishedAt: post.data_pub,
+            color: post.categoria_cor,
         }));
 
         return NextResponse.json(formattedPosts, { status: 200 });

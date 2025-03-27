@@ -63,29 +63,30 @@ export default function PostForm() {
     }
 
   return (
-    <div className="flex flex-col h-screen bg-slate-200">
+    <div className="flex flex-col h-screen">
       <AdminHeader/>
-      <div className="flex flex-1">
-        {/* Sidebar */}
-        <div className="w-64 bg-gray-800 text-white flex-shrink-0">          
+        <div className="flex flex-col md:flex-row h-full">
+          {/* Sidebar */}
+          <div className="w-full md:w-60 bg-gray-800 text-white flex-shrink-0 md:text-start p-4 text-center">
+            
             <Link href="/admin">
-              <div className="p-4 font-bold hover:bg-blue-700 cursor-pointer">
+              <div className="p-4 hover:bg-gray-700 cursor-pointer hover:rounded">
                 Dashboard
               </div>
             </Link>
             
-            <div className="bg-blue-600 text-white p-4 font-bold">
+              <div className="bg-blue-600 text-white p-4 font-bold rounded">
                 Gerenciar Marcas
               </div>
             
             <Link href="/admin/posts">
-              <div className="p-4 hover:bg-gray-700 cursor-pointer">
+              <div className="p-4 hover:bg-gray-700 cursor-pointer hover:rounded">
                 Gerenciar Blog
               </div>
             </Link>
 
-            <Link href="/admin">
-              <div className="p-4 hover:bg-gray-700 cursor-pointer">
+            <Link href="/admin/categorias">
+              <div className="p-4 hover:bg-gray-700 cursor-pointer hover:rounded">
                 Gerenciar Categorias
               </div>
             </Link>
@@ -107,7 +108,7 @@ export default function PostForm() {
 
                     <input type="submit" value="Enviar" className="w-full bg-blue-600 text-white font-semibold py-2 rounded-md hover:bg-blue-700 transition cursor-pointer mt-3" />
 
-                    <div className="mt-3">{mensagem}</div>
+                    <div className="mt-0">{mensagem}</div>
                 </form>
                 
                 <div className="mt-4 flex flex-col justify-center items-center">

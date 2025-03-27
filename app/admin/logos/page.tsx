@@ -46,27 +46,28 @@ const GerenciarLogos = () => {
   return (
     <div className="flex flex-col h-screen">
       <AdminHeader/>
-      <div className="flex flex-1">
-        {/* Sidebar */}
-        <div className="w-64 bg-gray-800 text-white flex-shrink-0">          
+        <div className="flex flex-col md:flex-row h-full">
+          {/* Sidebar */}
+          <div className="w-full md:w-60 bg-gray-800 text-white flex-shrink-0 md:text-start p-4 text-center">
+            
             <Link href="/admin">
-              <div className="p-4 hover:bg-gray-700 cursor-pointer">
+              <div className="p-4 hover:bg-gray-700 cursor-pointer hover:rounded">
                 Dashboard
               </div>
             </Link>
             
-              <div className="bg-blue-600 text-white p-4 font-bold">
+              <div className="bg-blue-600 text-white p-4 font-bold rounded">
                 Gerenciar Marcas
               </div>
             
             <Link href="/admin/posts">
-              <div className="p-4 hover:bg-gray-700 cursor-pointer">
+              <div className="p-4 hover:bg-gray-700 cursor-pointer hover:rounded">
                 Gerenciar Blog
               </div>
             </Link>
 
             <Link href="/admin/categorias">
-              <div className="p-4 hover:bg-gray-700 cursor-pointer">
+              <div className="p-4 hover:bg-gray-700 cursor-pointer hover:rounded">
                 Gerenciar Categorias
               </div>
             </Link>
@@ -78,7 +79,7 @@ const GerenciarLogos = () => {
             <h3 className="text-4xl font-medium font-bold text-black">Gerenciar Marcas</h3>
             <Link href="/admin/logos/adicionar">
               <button className="bg-green-600 text-white py-2 px-6 rounded hover:bg-green-800">
-              <p>+ Adicionar Nova Marca</p>
+              <p>+ Nova Marca</p>
               </button>
             </Link>
           </div>
