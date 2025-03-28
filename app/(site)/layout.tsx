@@ -31,7 +31,7 @@ const pathname = usePathname();
           defaultTheme="light"
         >
           {pathname !== "/blog" && <Lines />}
-          <Header />
+          {pathname !== "/auth/login" && <Header />}
           <ToasterContext />
           {children}
           {/* <Footer /> */}

@@ -3,10 +3,94 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import AdminHeader from "@/components/AdminHeader/AdminHeader";
+import { useEditor, EditorContent } from '@tiptap/react'
+import StarterKit from '@tiptap/starter-kit'
+import Underline from '@tiptap/extension-underline'
+import TextAlign from '@tiptap/extension-text-align'
+import Image from '@tiptap/extension-image'
+
+// Toolbar Component
+const Toolbar = ({ editor }: { editor: any }) => {
+  if (!editor) {
+    return null
+  }
+
+  return (
+    <div className="flex flex-wrap gap-2 mb-2 p-2 bg-gray-100 rounded">
+    <button
+      onClick={() => editor.chain().focus().toggleBold().run()}
+      className={`
+        w-10 h-10 flex items-center justify-center 
+        ${editor.isActive('bold') ? 'bg-blue-500 text-white' : 'bg-gray-200'}
+        rounded font-bold
+      `}
+    >
+      <span className="font-bold text-xl">B</span>
+    </button>
+    <button
+      onClick={() => editor.chain().focus().toggleItalic().run()}
+      className={`
+        w-10 h-10 flex items-center justify-center 
+        ${editor.isActive('italic') ? 'bg-blue-500 text-white' : 'bg-gray-200'}
+        rounded
+      `}
+    >
+      <span className="italic text-xl">I</span>
+    </button>
+    <button
+      onClick={() => editor.chain().focus().toggleUnderline().run()}
+      className={`
+        w-10 h-10 flex items-center justify-center 
+        ${editor.isActive('underline') ? 'bg-blue-500 text-white' : 'bg-gray-200'}
+        rounded
+      `}
+    >
+      <span className="underline text-base">U</span>
+    </button>
+      <select 
+        onChange={(e) => editor.chain().focus().setTextAlign(e.target.value).run()}
+        className="p-1 rounded bg-gray-200"
+      >
+        <option value="left">Esquerda</option>
+        <option value="center">Centro</option>
+        <option value="right">Direita</option>
+      </select>
+      {/* <button
+        onClick={() => {
+          const url = window.prompt('URL da imagem')
+          if (url) {
+            editor.chain().focus().setImage({ src: url }).run()
+          }
+        }}
+        className="p-1 rounded bg-gray-200"
+      >
+        Imagem
+      </button> */}
+    </div>
+  )
+}
 
 export default function PostForm() {
     const [mensagem, setMensagem] = useState<React.ReactNode | null>(null);
     const [categorias, setCategorias] = useState<{ id: number; nome: string; cor: string }[]>([]);
+
+    // Tiptap Editor
+    const editor = useEditor({
+      extensions: [
+        StarterKit,
+        Underline,
+        Image,
+        TextAlign.configure({
+          types: ['paragraph'],
+        }),
+      ],
+      content: '',
+      editorProps: {
+        attributes: {
+          class: 'prose max-w-none p-2 min-h-[200px] border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400',
+        },
+      },
+    });
 
     useEffect(() => {
         async function fetchCategorias() {
@@ -29,7 +113,7 @@ export default function PostForm() {
         const form = event.currentTarget;
         
         const titulo = (form.elements.namedItem("titulo") as HTMLInputElement).value;
-        const corpo = (form.elements.namedItem("corpo") as HTMLTextAreaElement).value;
+        const corpo = editor?.getHTML() || ''; // Get HTML content from Tiptap
         const categoria = (form.elements.namedItem("categoria") as HTMLSelectElement).value;
         const autor = (form.elements.namedItem("autor") as HTMLSelectElement).value;
         const img = (form.elements.namedItem("imagem") as HTMLInputElement).files?.[0];
@@ -75,6 +159,7 @@ export default function PostForm() {
                         </>
                     );
                     form.reset();
+                    editor?.commands.clearContent(); // Clear Tiptap editor
                 } else {
                     setMensagem(<span className="text-red-600 font-bold">{resultado.message || "Erro ao enviar a postagem!"}</span>);
                 }
@@ -125,9 +210,10 @@ export default function PostForm() {
                         <input type="text" name="titulo" required className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400 mb-3" />
 
                         <label className="font-semibold block">Insira seu Texto:</label>
-                        <textarea name="corpo" rows={4} required placeholder="Escreva seu texto aqui" className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400 mb-3"></textarea>
+                        <Toolbar editor={editor} />
+                        <EditorContent editor={editor} />
 
-                        <label className="font-semibold block">Autor:</label>
+                        <label className="font-semibold block mt-3">Autor:</label>
                         <select name="autor" className="w-full border border-gray-300 rounded-md p-2 mb-3">
                         <option value="1">Alexandre Diniz</option>
                         <option value="2">Rodrigo Scapolatempore</option>

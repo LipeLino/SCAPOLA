@@ -43,6 +43,7 @@ const postId = async (id: string) => {
     if (!post) {
       notFound();
     }
+    console.log(post.img)
     
   return (
     <>
@@ -53,46 +54,46 @@ const postId = async (id: string) => {
               <div className="animate_top rounded-md border border-stroke bg-white p-7.5 shadow-solid-13 dark:border-strokedark dark:bg-blacksection md:p-10">
                 <div className="mb-10 w-full overflow-hidden ">
                   <div className="relative aspect-[97/60] w-full sm:aspect-[97/44]">
+                  <a href={post.mainImage} target="_blank" rel="noopener noreferrer">
                     <Image
                       src={post.mainImage}
                       alt=""
                       fill
                       className="rounded-md object-cover object-center"
-                    />
+                    /></a>
                   </div>
                 </div>
 
-                <h2 className="mb-5 mt-11 text-3xl font-semibold text-black dark:text-white 2xl:text-sectiontitle2">
-                  {post.title}
-                </h2>
+                <div className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 p-6 rounded-lg shadow-lg">
+                  <h1 className="text-4xl font-extrabold text-gray-900 text-center mb-4 dark:text-slate-200">{post.title}</h1>
+                  <div className="flex flex-wrap justify-center gap-4">
+                    <div className="flex items-center text-md text-gray-600 dark:text-white">
+                      🖋️ <span className="ml-2">{post.author}</span>
+                    </div>
+                    <div className="flex items-center text-md text-gray-600 dark:text-white">
+                      📅 <span className="ml-2">{post.publishedAt}</span>
+                    </div>
+                    <div className="flex items-center text-md text-gray-600 dark:text-white">
+                      🏷️ <span className="bg-blue-500 rounded font-semibold text-sm px-1.5 text-white dark:text-white" style={{ backgroundColor: post.color }}>{post.category}</span>
+                    </div>
+                  </div>
+                </div>
 
-                <ul className="mb-9 flex flex-wrap gap-5 2xl:gap-7.5">
-                  <li>
-                    <span className="text-black dark:text-white">Autor: </span>{" "}
-                    {post.author}
-                  </li>
-                  <li>
-                    <span className="text-black dark:text-white">
-                      Publicado em: {post.publishedAt}
-                    </span>{" "}
-                  </li>
-                  <li>
-                    <span className="text-black dark:text-white">
-                      Categoria:&nbsp;
-                    </span>
-                    <span className="bg-blue-500 rounded font-semibold text-xs px-1.5 text-white dark:text-white" style={{ backgroundColor: post.color }}>{post.category}</span>
-                  </li>
-                </ul>
+                <hr className="my-8 h-0.5 bg-slate-200 dark:bg-white/10"/>
 
                 <div className="blog-details" dangerouslySetInnerHTML={{ __html: formatText(post.body) }}></div>
 
-                  <div className="flex flex-wrap gap-5 object-cover">
+                <hr className="my-8 h-0.5 bg-slate-200 dark:bg-white/10"/>
+
+                  <div className="flex flex-wrap gap-5 object-cover justify-center">
+                    <a href={post.mainImage} target="_blank" rel="noopener noreferrer">
                     <Image
                       src={post.mainImage}
                       width={350}
                       height={200}
                       alt="image"
                     />
+                    </a>
                     {post.optionalImage && (
                       <Image
                       src={post.optionalImage}

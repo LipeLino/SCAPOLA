@@ -62,11 +62,11 @@
 }
 
 .blog-details p {
-  @apply mb-8 text-base leading-relaxed text-titlebgdark dark:text-waterloo;
+  @apply mb-8 text-base leading-relaxed text-titlebgdark dark:text-white;
 }
 
 .blog-details p strong {
-  @apply text-primary dark:text-waterloo;
+  @apply text-black dark:text-white;
 }
 .blog-details h3 strong,
 .blog-details h3 {
